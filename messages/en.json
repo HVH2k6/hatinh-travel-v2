@@ -1,0 +1,139 @@
+{
+  "header": {
+    "home": "Home",
+    "market": "Market",
+    "audio": "Historical Audio",
+    "ranking": "Top Tourist Destinations",
+    "blog": "Blog",
+    "login": "Login",
+    "setting": "Setting",
+    "logout": "Logout",
+    "history": "View registration history"
+  },
+  "home": {
+    "hero": {
+      "title": "Hà Tĩnh: Discover the Hidden Beauty",
+      "description": "From pristine, majestic beaches to solemn historical sites, Hà Tĩnh invites you to experience a unique and complete journey.",
+      "ctaSeePlaces": "Explore Places",
+      "ctaPlanTrip": "Plan Your Trip"
+    },
+    "title": {
+      "attraction": "Featured Destinations"
+    }
+  },
+  "card": {
+    "attraction": {
+      "explore": "Explore"
+    }
+  },
+  "login": {
+    "title": "Sign In",
+    "description": "Enter your email and password to continue",
+    "email_label": "Email Address",
+    "password_label": "Password",
+    "forgot_password": "Forgot password?",
+    "button_loading": "Processing...",
+    "button_submit": "Sign In",
+    "error_fallback": "Login failed.",
+    "error_connection": "Connection error to server.",
+    "validation": {
+      "email_invalid": "Invalid email address.",
+      "password_min": "Password must be at least 6 characters."
+    }
+  },
+  "register": {
+    "title": "Sign Up",
+    "description": "Create a new account to get started.",
+    "already_have_account": "Already have an account?",
+    "login_link": "Sign In",
+    "username_label": "Display Name (Optional)",
+    "email_label": "Email *",
+    "password_label": "Password *",
+    "confirm_password_label": "Confirm Password *",
+    "button_loading": "Processing...",
+    "button_submit": "Create Account",
+    "error_fallback": "Registration failed.",
+    "error_connection": "Connection error to server.",
+    "success_title": "Check Your Inbox",
+    "success_message_1": "We have sent a verification link to",
+    "success_message_2": "Please check your email to activate your account.",
+    "back_to_login": "Back to Sign In",
+    "validation": {
+      "email_invalid": "Invalid email address.",
+      "password_min": "Password must be at least 6 characters.",
+      "password_mismatch": "Passwords do not match."
+    }
+  },
+  "attraction": {
+    "explore": "Explore",
+    "detail": {
+      "home": "Home",
+      "photo_gallery": "Photo Gallery",
+      "trip_info": "Trip Information",
+      "location": "Location",
+      "opening_hours": "Opening Hours",
+      "not_updated": "Not updated",
+      "estimated_price": "Estimated Ticket Price",
+      "free": "Free",
+      "hotline": "Hotline",
+      "website": "Website",
+      "view_map": "View directions on Google Maps",
+      "image_viewer": "Image Viewer",
+      "views": "views"
+    }
+  },
+  "market": {
+    "registerLink": "If you need to open a store, click here",
+    "history": "View registration history"
+  },
+  "seller": {
+    "title": "Seller Registration",
+    "description": "Fill in the information below to start selling on our platform.",
+    "success_title": "Application submitted successfully!",
+    "success_description": "Your store registration has been added to the queue. Please wait for admin approval.",
+    "btn_home": "Back to Home",
+    "btn_submit": "Submit Registration",
+    "btn_loading": "Submitting application...",
+    "error_network": "Network error or server interruption.",
+    "sections": {
+      "basic": "1. Basic Information",
+      "identity": "2. Identity Verification",
+      "social": "3. Contact Channels (Optional)"
+    },
+    "fields": {
+      "shop_name": "Shop Name *",
+      "shop_name_placeholder": "Example: ABC Shop",
+      "phone_number": "Phone Number *",
+      "phone_number_placeholder": "0987654321",
+      "description": "Short Description",
+      "description_placeholder": "A few details about your products...",
+      "id_front": "Front Side of ID Card *",
+      "id_back": "Back Side of ID Card *",
+      "facebook": "Facebook Link",
+      "zalo": "Zalo Number",
+      "zalo_placeholder": "Enter Zalo phone number"
+    },
+    "validation": {
+      "shop_name_min": "Shop name must be at least 2 characters",
+      "shop_name_max": "Shop name must not exceed 255 characters",
+      "phone_invalid": "Invalid phone number (10-20 characters)",
+      "upload_front": "Please upload the front side image",
+      "upload_back": "Please upload the back side image"
+    }
+  },
+  "seller_history": {
+    "title": "Seller Application History",
+    "description": "Track the status of your shop registration applications.",
+    "empty": "You have not submitted any seller applications yet.",
+    "th_shop_name": "Shop Name",
+    "th_phone": "Phone Number",
+    "th_date": "Submitted Date",
+    "th_status": "Status",
+     "th_rejection": "Rejection Reason",
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "header": {
+    "home": "Trang chủ",
+    "market": "Chợ",
+    "audio": "Audio lịch sử",
+    "ranking": "Top điểm du lịch hot",
+    "blog": "Blog",
+    "login": "Đăng nhập",
+    "setting": "Cài đặt",
+    "logout": "Đăng xuất",
+    "history":"Xem lịch sử đăng ký"
+  },
+  "home": {
+    "hero": {
+      "title": "Hà Tĩnh: Khám Phá Vẻ Đẹp Ẩn Giấu",
+      "description": "Từ những bãi biển hoang sơ, hùng vĩ đến những di tích lịch sử trang nghiêm, Hà Tĩnh mời gọi bạn trải nghiệm một hành trình độc đáo và trọn vẹn.",
+      "ctaSeePlaces": "Khám Phá Địa Điểm",
+      "ctaPlanTrip": "Lên Kế Hoạch Chuyến Đi"
+    },
+    "title": {
+      "attraction": "Địa điểm du lịch nổi bật"
+    }
+  },
+  "card": {
+    "attraction": {
+      "explore": "Khám phá"
+    }
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "description": "Nhập email và mật khẩu của bạn để tiếp tục",
+    "email_label": "Email",
+    "password_label": "Mật khẩu",
+    "forgot_password": "Quên mật khẩu?",
+    "button_loading": "Đang xử lý...",
+    "button_submit": "Đăng nhập",
+    "error_fallback": "Đăng nhập thất bại.",
+    "error_connection": "Lỗi kết nối đến server.",
+    "validation": {
+      "email_invalid": "Email không hợp lệ.",
+      "password_min": "Mật khẩu phải có ít nhất 6 ký tự."
+    }
+  },
+  "register": {
+    "title": "Đăng ký",
+    "description": "Tạo tài khoản mới để bắt đầu.",
+    "already_have_account": "Đã có tài khoản?",
+    "login_link": "Đăng nhập",
+    "username_label": "Tên hiển thị (Tùy chọn)",
+    "email_label": "Email *",
+    "password_label": "Mật khẩu *",
+    "confirm_password_label": "Xác nhận mật khẩu *",
+    "button_loading": "Đang xử lý...",
+    "button_submit": "Đăng ký tài khoản",
+    "error_fallback": "Đăng ký thất bại.",
+    "error_connection": "Lỗi kết nối đến server.",
+    "success_title": "Kiểm tra hộp thư",
+    "success_message_1": "Chúng tôi đã gửi một liên kết xác thực đến",
+    "success_message_2": "Vui lòng kiểm tra email để kích hoạt tài khoản.",
+    "back_to_login": "Trở về đăng nhập",
+    "validation": {
+      "email_invalid": "Email không hợp lệ.",
+      "password_min": "Mật khẩu phải có ít nhất 6 ký tự.",
+      "password_mismatch": "Mật khẩu xác nhận không khớp."
+    }
+  },
+  "attraction": {
+    "explore": "Khám phá",
+    "detail": {
+      "home": "Trang chủ",
+      "photo_gallery": "Thư viện hình ảnh",
+      "trip_info": "Thông tin chuyến đi",
+      "location": "Địa điểm",
+      "opening_hours": "Giờ hoạt động",
+      "not_updated": "Chưa cập nhật",
+      "estimated_price": "Giá vé dự kiến",
+      "free": "Miễn phí",
+      "hotline": "Hotline",
+      "website": "Website",
+      "view_map": "Xem đường đi trên Google Maps",
+      "image_viewer": "Trình xem ảnh",
+      "views": "lượt xem"
+    }
+  },
+  "market": {
+    "registerLink": "Nếu bạn cần mở cửa hàng nhấn vào đây",
+    "history":"Xem lịch sử đăng ký"
+  },
+  "seller": {
+    "title": "Đăng ký bán hàng",
+    "description": "Điền đầy đủ thông tin bên dưới để bắt đầu kinh doanh trên nền tảng của chúng tôi.",
+    "success_title": "Gửi đơn thành công!",
+    "success_description": "Hồ sơ đăng ký cửa hàng của bạn đã được đưa vào hàng đợi. Vui lòng chờ ban quản trị phê duyệt.",
+    "btn_home": "Về trang chủ",
+    "btn_submit": "Gửi hồ sơ đăng ký",
+    "btn_loading": "Đang gửi hồ sơ...",
+    "error_network": "Lỗi mạng hoặc server bị gián đoạn.",
+    "sections": {
+      "basic": "1. Thông tin cơ bản",
+      "identity": "2. Xác minh danh tính",
+      "social": "3. Kênh liên hệ (Tùy chọn)"
+    },
+    "fields": {
+      "shop_name": "Tên Cửa Hàng *",
+      "shop_name_placeholder": "Ví dụ: Shop abc",
+      "phone_number": "Số Điện Thoại *",
+      "phone_number_placeholder": "0987654321",
+      "description": "Mô tả ngắn",
+      "description_placeholder": "Vài nét về sản phẩm...",
+      "id_front": "Mặt trước CCCD *",
+      "id_back": "Mặt sau CCCD *",
+      "facebook": "Link Facebook",
+      "zalo": "Số Zalo",
+      "zalo_placeholder": "Nhập SĐT Zalo"
+    },
+    "validation": {
+      "shop_name_min": "Tên shop phải có ít nhất 2 ký tự",
+      "shop_name_max": "Tên shop không được vượt quá 255 ký tự",
+      "phone_invalid": "Số điện thoại không hợp lệ (từ 10-20 ký tự)",
+      "upload_front": "Vui lòng upload ảnh mặt trước",
+      "upload_back": "Vui lòng upload ảnh mặt sau"
+    }
+  },
+  "seller_history": {
+    "title": "Lịch sử đăng ký bán hàng",
+    "description": "Theo dõi trạng thái các đơn đăng ký mở cửa hàng của bạn.",
+    "empty": "Bạn chưa gửi đơn đăng ký bán hàng nào.",
+    "th_shop_name": "Tên cửa hàng",
+    "th_phone": "Số điện thoại",
+    "th_date": "Ngày gửi",
+    "th_status": "Trạng thái",
+    "th_rejection":"Lý do từ chối",
+    "status": {
+      "pending": "Đang chờ duyệt",
+      "approved": "Đã phê duyệt",
+      "rejected": "Bị từ chối"
+    }
+  }
+}

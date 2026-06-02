@@ -1,0 +1,139 @@
+{
+  "header": {
+    "home": "首页",
+    "market": "市场",
+    "audio": "历史音频",
+    "ranking": "热门旅游景点排行榜",
+    "blog": "博客",
+    "login": "登录",
+    "setting": "设置",
+    "logout": "退出登录",
+     "history": "查看注册历史"
+  },
+  "home": {
+    "hero": {
+      "title": "河静：探索隐藏之美",
+      "description": "从原始、雄伟的海滩到庄严的历史遗迹，河静邀请您体验一段独特而完整的旅程。",
+      "ctaSeePlaces": "查看地点",
+      "ctaPlanTrip": "制定计划"
+    },
+    "title": {
+      "attraction": "热门旅游景点"
+    }
+  },
+  "card": {
+    "attraction": {
+      "explore": "探索"
+    }
+  },
+  "login": {
+    "title": "登录",
+    "description": "请输入您的邮箱和密码以继续",
+    "email_label": "电子邮箱",
+    "password_label": "密码",
+    "forgot_password": "忘记密码？",
+    "button_loading": "处理中...",
+    "button_submit": "登录",
+    "error_fallback": "登录失败。",
+    "error_connection": "无法连接到服务器。",
+    "validation": {
+      "email_invalid": "无效的邮箱地址。",
+      "password_min": "密码至少需要 6 个字符。"
+    }
+  },
+  "register": {
+    "title": "注册",
+    "description": "创建一个新账户开始使用。",
+    "already_have_account": "已经有账户了？",
+    "login_link": "登录",
+    "username_label": "显示名称（可选）",
+    "email_label": "邮箱 *",
+    "password_label": "密码 *",
+    "confirm_password_label": "确认密码 *",
+    "button_loading": "处理中...",
+    "button_submit": "创建账户",
+    "error_fallback": "注册失败。",
+    "error_connection": "连接服务器出错。",
+    "success_title": "请检查您的邮箱",
+    "success_message_1": "我们已向以下邮箱发送验证链接：",
+    "success_message_2": "请检查您的邮箱以激活账户。",
+    "back_to_login": "返回登录",
+    "validation": {
+      "email_invalid": "无效的邮箱地址。",
+      "password_min": "密码至少需要 6 个字符。",
+      "password_mismatch": "两次输入的密码不一致。"
+    }
+  },
+  "attraction": {
+    "explore": "探索",
+    "detail": {
+      "home": "首页",
+      "photo_gallery": "图片库",
+      "trip_info": "行程信息",
+      "location": "地点",
+      "opening_hours": "营业时间",
+      "not_updated": "未更新",
+      "estimated_price": "预计价格",
+      "free": "免费",
+      "hotline": "热线电话",
+      "website": "网站",
+      "view_map": "在谷歌地图上查看",
+      "image_viewer": "图片查看器",
+      "views": "次浏览"
+    }
+  },
+  "market": {
+    "registerLink": "如果您需要开设商店，请点击这里",
+     "history": "查看注册历史"
+  },
+  "seller": {
+    "title": "卖家注册",
+    "description": "请填写以下信息以开始在我们的平台上销售。",
+    "success_title": "申请提交成功！",
+    "success_description": "您的店铺注册申请已加入审核队列，请等待管理员批准。",
+    "btn_home": "返回首页",
+    "btn_submit": "提交注册申请",
+    "btn_loading": "正在提交申请...",
+    "error_network": "网络错误或服务器中断。",
+    "sections": {
+      "basic": "1. 基本信息",
+      "identity": "2. 身份验证",
+      "social": "3. 联系方式（可选）"
+    },
+    "fields": {
+      "shop_name": "店铺名称 *",
+      "shop_name_placeholder": "例如：ABC商店",
+      "phone_number": "电话号码 *",
+      "phone_number_placeholder": "0987654321",
+      "description": "简短描述",
+      "description_placeholder": "简单介绍一下您的产品...",
+      "id_front": "身份证正面 *",
+      "id_back": "身份证背面 *",
+      "facebook": "Facebook 链接",
+      "zalo": "Zalo号码",
+      "zalo_placeholder": "输入 Zalo 电话号码"
+    },
+    "validation": {
+      "shop_name_min": "店铺名称至少需要2个字符",
+      "shop_name_max": "店铺名称不能超过255个字符",
+      "phone_invalid": "无效的电话号码（10-20位）",
+      "upload_front": "请上传身份证正面照片",
+      "upload_back": "请上传身份证背面照片"
+    }
+  },
+    "seller_history": {
+    "title": "卖家申请记录",
+    "description": "跟踪您的店铺注册申请状态。",
+    "empty": "您尚未提交任何卖家申请。",
+    "th_shop_name": "店铺名称",
+    "th_phone": "电话号码",
+    "th_date": "提交日期",
+    "th_status": "状态",
+    "th_rejection": "拒绝原因",
+    "status": {
+      "pending": "待审核",
+      "approved": "已批准",
+      "rejected": "已拒绝"
+    }
+  }
+}

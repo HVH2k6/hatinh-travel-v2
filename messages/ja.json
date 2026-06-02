@@ -1,0 +1,139 @@
+{
+  "header": {
+    "home": "ホーム",
+    "market": "マーケット",
+    "audio": "歴史オーディオ",
+    "ranking": "人気観光スポットランキング",
+    "blog": "ブログ",
+    "login": "ログイン",
+    "setting": "設定",
+    "logout": "ログアウト",
+    "history": "登録履歴を見る"
+  },
+  "home": {
+    "hero": {
+      "title": "ハティン：隠れた美しさを発見しよう",
+      "description": "手つかずの壮大なビーチから厳かな歴史遺産まで、ハティンは特別で充実した旅へとあなたを誘います。",
+      "ctaSeePlaces": "スポットを見る",
+      "ctaPlanTrip": "旅行を計画する"
+    },
+    "title": {
+      "attraction": "人気観光スポット"
+    }
+  },
+  "card": {
+    "attraction": {
+      "explore": "探索"
+    }
+  },
+  "login": {
+    "title": "サインイン",
+    "description": "続行するにはメールアドレスとパスワードを入力してください",
+    "email_label": "メールアドレス",
+    "password_label": "パスワード",
+    "forgot_password": "パスワードをお忘れですか？",
+    "button_loading": "処理中...",
+    "button_submit": "サインイン",
+    "error_fallback": "ログインに失敗しました。",
+    "error_connection": "サーバーへの接続エラー。",
+    "validation": {
+      "email_invalid": "無効なメールアドレスです。",
+      "password_min": "パスワードは6文字以上である必要があります。"
+    }
+  },
+  "register": {
+    "title": "新規登録",
+    "description": "新しいアカウントを作成して始めましょう。",
+    "already_have_account": "すでにアカウントをお持ちですか？",
+    "login_link": "ログイン",
+    "username_label": "表示名（任意）",
+    "email_label": "メールアドレス *",
+    "password_label": "パスワード *",
+    "confirm_password_label": "パスワード確認 *",
+    "button_loading": "処理中...",
+    "button_submit": "アカウント作成",
+    "error_fallback": "登録に失敗しました。",
+    "error_connection": "サーバー接続エラー。",
+    "success_title": "メールをご確認ください",
+    "success_message_1": "確認リンクを次のメールアドレスに送信しました：",
+    "success_message_2": "アカウントを有効化するため、メールをご確認ください。",
+    "back_to_login": "ログインに戻る",
+    "validation": {
+      "email_invalid": "無効なメールアドレスです。",
+      "password_min": "パスワードは6文字以上である必要があります。",
+      "password_mismatch": "パスワードが一致しません。"
+    }
+  },
+  "attraction": {
+    "explore": "探索",
+    "detail": {
+      "home": "ホーム",
+      "photo_gallery": "フォトギャラリー",
+      "trip_info": "旅行情報",
+      "location": "場所",
+      "opening_hours": "営業時間",
+      "not_updated": "未更新",
+      "estimated_price": "予想チケット価格",
+      "free": "無料",
+      "hotline": "ホットライン",
+      "website": "ウェブサイト",
+      "view_map": "Googleマップでルートを見る",
+      "image_viewer": "画像ビューア",
+      "views": "閲覧数"
+    }
+  },
+  "market": {
+    "registerLink": "ショップを開設したい場合はここをクリックしてください",
+    "history": "登録履歴を見る"
+  },
+  "seller": {
+    "title": "販売者登録",
+    "description": "当プラットフォームで販売を開始するには、以下の情報を入力してください。",
+    "success_title": "申請が正常に送信されました！",
+    "success_description": "店舗登録申請がキューに追加されました。管理者の承認をお待ちください。",
+    "btn_home": "ホームへ戻る",
+    "btn_submit": "登録申請を送信",
+    "btn_loading": "申請を送信中...",
+    "error_network": "ネットワークエラーまたはサーバー障害が発生しました。",
+    "sections": {
+      "basic": "1. 基本情報",
+      "identity": "2. 本人確認",
+      "social": "3. 連絡先（任意）"
+    },
+    "fields": {
+      "shop_name": "ショップ名 *",
+      "shop_name_placeholder": "例: ABCショップ",
+      "phone_number": "電話番号 *",
+      "phone_number_placeholder": "0987654321",
+      "description": "簡単な説明",
+      "description_placeholder": "商品の簡単な説明...",
+      "id_front": "身分証明書の表面 *",
+      "id_back": "身分証明書の裏面 *",
+      "facebook": "Facebookリンク",
+      "zalo": "Zalo番号",
+      "zalo_placeholder": "Zaloの電話番号を入力"
+    },
+    "validation": {
+      "shop_name_min": "ショップ名は2文字以上で入力してください。",
+      "shop_name_max": "ショップ名は255文字を超えることはできません。",
+      "phone_invalid": "無効な電話番号です（10〜20文字）",
+      "upload_front": "身分証明書の表面画像をアップロードしてください。",
+      "upload_back": "身分証明書の裏面画像をアップロードしてください。"
+    }
+  },
+    "seller_history": {
+    "title": "販売者申請履歴",
+    "description": "店舗登録申請のステータスを確認できます。",
+    "empty": "まだ販売者申請を送信していません。",
+    "th_shop_name": "ショップ名",
+    "th_phone": "電話番号",
+    "th_date": "申請日",
+    "th_status": "ステータス",
+        "th_rejection": "却下理由",
+    "status": {
+      "pending": "保留中",
+      "approved": "承認済み",
+      "rejected": "却下"
+    }
+  }
+}
