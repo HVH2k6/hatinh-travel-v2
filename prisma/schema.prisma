@@ -1,0 +1,366 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+model Role {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String?
+  description String?
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @db.Timestamptz(6)
+  users       User[]
+}
+
+model User {
+  id                  String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username            String?
+  email               String?              @unique
+  password            String?
+  roleId              String?              @db.Uuid
+  avatar              String?              @default("https://images.unsplash.com/photo-1472491235688-bdc81a63246e?q=80&w=1170&auto=format&fit=crop")
+  phoneNumber         String?
+  description         String?
+  status              Boolean?             @default(true)
+  createdAt           DateTime             @default(now()) @db.Timestamptz(6)
+  updatedAt           DateTime             @default(now()) @db.Timestamptz(6)
+  role                Role?                @relation(fields: [roleId], references: [id])
+  seller_applications Seller_Application[]
+  shop                Shop?
+  reviews             Review[]
+}
+
+model Language {
+  code                            String                           @id
+  name                            String
+  flag_icon                       String?
+  is_active                       Boolean?                         @default(true)
+  created_at                      DateTime                         @default(now()) @db.Timestamptz(6)
+  category_translations           Category_Translation[]
+  attraction_type_translations    Attraction_Type_Translation[]
+  address_translations            Address_Translation[]
+  tourist_attraction_translations Tourist_Attraction_Translation[]
+  shop_translations               Shop_Translation[]
+  unit_translations               Unit_Translation[]
+  product_translations            Product_Translation[]
+  local_specialty_translations    Local_Specialty_Translation[]
+  cultural_art_translations       Cultural_Art_Translation[]
+}
+
+model Category {
+  id                 String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image              String?
+  position           Int?                   @default(0)
+  is_active          Boolean?               @default(true)
+  created_at         DateTime               @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime               @default(now()) @db.Timestamptz(6)
+  translations       Category_Translation[]
+  tourist_attractions Tourist_Attraction[]
+  local_specialties  Local_Specialty[]
+  cultural_arts      Cultural_Art[]
+}
+
+model Category_Translation {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  category_id   String   @db.Uuid
+  language_code String
+  name          String
+  slug          String
+  created_at    DateTime @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime @default(now()) @db.Timestamptz(6)
+  category      Category @relation(fields: [category_id], references: [id])
+  language      Language @relation(fields: [language_code], references: [code])
+}
+
+model Attraction_Type {
+  id                 String                        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  icon               String?
+  is_active          Boolean?                      @default(true)
+  created_at         DateTime                      @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime                      @default(now()) @db.Timestamptz(6)
+  translations       Attraction_Type_Translation[]
+  tourist_attractions Tourist_Attraction[]
+}
+
+model Attraction_Type_Translation {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type_id       String          @db.Uuid
+  language_code String
+  name          String
+  slug          String
+  created_at    DateTime        @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime        @default(now()) @db.Timestamptz(6)
+  type          Attraction_Type @relation(fields: [type_id], references: [id])
+  language      Language        @relation(fields: [language_code], references: [code])
+}
+
+model Address {
+  id                 String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ward_code          Int
+  map_url            String?
+  created_at         DateTime              @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime              @default(now()) @db.Timestamptz(6)
+  detail             String?
+  ward               Ward                  @relation(fields: [ward_code], references: [code])
+  translations       Address_Translation[]
+  tourist_attractions Tourist_Attraction[]
+  shops              Shop[]
+  local_specialties  Local_Specialty[]
+  cultural_arts      Cultural_Art[]
+}
+
+model Address_Translation {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  address_id    String   @db.Uuid
+  language_code String
+  detail        String
+  created_at    DateTime @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime @default(now()) @db.Timestamptz(6)
+  address       Address  @relation(fields: [address_id], references: [id])
+  language      Language @relation(fields: [language_code], references: [code])
+}
+
+model Tourist_Attraction {
+  id           String                           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image        String?
+  sub_image    Json?
+  category_id  String?                          @db.Uuid
+  type_id      String?                          @db.Uuid
+  address_id   String?                          @db.Uuid
+  opening_time DateTime?                        @db.Time(6)
+  closing_time DateTime?                        @db.Time(6)
+  min_price    Decimal?                         @default(0) @db.Decimal
+  max_price    Decimal?                         @default(0) @db.Decimal
+  phone_number String?
+  website      String?
+  is_active    Boolean?                         @default(true)
+  is_featured  Boolean?                         @default(false)
+  view_count   Int?                             @default(0)
+  created_at   DateTime                         @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime                         @default(now()) @db.Timestamptz(6)
+  category     Category?                        @relation(fields: [category_id], references: [id])
+  type         Attraction_Type?                 @relation(fields: [type_id], references: [id])
+  address      Address?                         @relation(fields: [address_id], references: [id])
+  translations Tourist_Attraction_Translation[]
+}
+
+model Tourist_Attraction_Translation {
+  id            String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  attraction_id String             @db.Uuid
+  language_code String
+  name          String
+  slug          String
+  description   String?
+  created_at    DateTime           @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime           @default(now()) @db.Timestamptz(6)
+  attraction    Tourist_Attraction @relation(fields: [attraction_id], references: [id])
+  language      Language           @relation(fields: [language_code], references: [code])
+}
+
+model Ward {
+  code       Int      @id
+  name       String
+  district_name String? @default("N/A")
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  addresses  Address[]
+}
+
+model Seller_Application {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id          String   @db.Uuid
+  shop_name        String
+  phone_number     String
+  description      String?
+  documents        Json
+  social_media     Json?
+  status           String?  @default("pending")
+  rejection_reason String?
+  created_at       DateTime @default(now()) @db.Timestamptz(6)
+  updated_at       DateTime @default(now()) @db.Timestamptz(6)
+  user             User     @relation(fields: [user_id], references: [id])
+
+  @@map("Seller_Applications")
+}
+
+model Shop {
+  id              String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id         String             @unique @db.Uuid
+  address_id      String?            @db.Uuid
+  logo_url        String?
+  cover_image_url String?
+  phone_number    String?
+  contact_email   String?
+  status          String?            @default("active")
+  rating          Decimal?           @default(0.00) @db.Decimal
+  total_reviews   Int?               @default(0)
+  created_at      DateTime           @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime           @default(now()) @db.Timestamptz(6)
+  views           Int?               @default(0)
+  user            User               @relation(fields: [user_id], references: [id])
+  address         Address?           @relation(fields: [address_id], references: [id])
+  products        Product[]
+  translations    Shop_Translation[]
+
+  @@map("shops")
+}
+
+model Shop_Translation {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shop_id       String   @db.Uuid
+  language_code String
+  name          String
+  slug          String
+  description   String?
+  created_at    DateTime @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime @default(now()) @db.Timestamptz(6)
+  shop          Shop     @relation(fields: [shop_id], references: [id])
+  language      Language @relation(fields: [language_code], references: [code])
+
+  @@map("shop_translations")
+}
+
+model Unit {
+  id           String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  code         String             @unique
+  is_active    Boolean?           @default(true)
+  created_at   DateTime           @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime           @default(now()) @db.Timestamptz(6)
+  products     Product[]
+  local_specialties Local_Specialty[]
+  translations Unit_Translation[]
+
+  @@map("units")
+}
+
+model Unit_Translation {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  unit_id       String   @db.Uuid
+  language_code String
+  name          String
+  created_at    DateTime @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime @default(now()) @db.Timestamptz(6)
+  unit          Unit     @relation(fields: [unit_id], references: [id])
+  language      Language @relation(fields: [language_code], references: [code])
+
+  @@map("unit_translations")
+}
+
+model Product {
+  id           String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shop_id      String                @db.Uuid
+  unit_id      String?               @db.Uuid
+  price        Decimal               @default(0.00) @db.Decimal
+  image        String
+  list_image   Json?
+  status       String?               @default("active")
+  views        Int?                  @default(0)
+  is_featured  Boolean?              @default(false)
+  created_at   DateTime              @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime              @default(now()) @db.Timestamptz(6)
+  shop         Shop                  @relation(fields: [shop_id], references: [id])
+  unit         Unit?                 @relation(fields: [unit_id], references: [id])
+  translations Product_Translation[]
+
+  @@map("products")
+}
+
+model Product_Translation {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  product_id    String   @db.Uuid
+  language_code String
+  name          String
+  slug          String
+  description   String?
+  created_at    DateTime @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime @default(now()) @db.Timestamptz(6)
+  product       Product  @relation(fields: [product_id], references: [id])
+  language      Language @relation(fields: [language_code], references: [code])
+
+  @@map("product_translations")
+}
+
+model Review {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id         String   @db.Uuid
+  reviewable_id   String   @db.Uuid
+  reviewable_type String
+  rating          Int
+  review_content  String?
+  list_image      Json?
+  reply_message   String?
+  pin             Boolean? @default(false)
+  is_approved     Boolean? @default(true)
+  created_at      DateTime @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime @default(now()) @db.Timestamptz(6)
+  user            User     @relation(fields: [user_id], references: [id])
+
+  @@map("reviews")
+}
+
+model Local_Specialty {
+  id           String                        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  address_id   String?                       @db.Uuid
+  unit_id      String?                       @db.Uuid
+  price        Decimal?                      @default(0.00) @db.Decimal
+  image        String
+  list_image   Json?
+  status       String?                       @default("active")
+  is_featured  Boolean?                      @default(false)
+  views        Int?                          @default(0)
+  created_at   DateTime                      @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime                      @default(now()) @db.Timestamptz(6)
+  category_id  String?                       @db.Uuid
+  address      Address?                      @relation(fields: [address_id], references: [id])
+  unit         Unit?                         @relation(fields: [unit_id], references: [id])
+  category     Category?                     @relation(fields: [category_id], references: [id])
+  translations Local_Specialty_Translation[]
+}
+
+model Local_Specialty_Translation {
+  id                 String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  local_specialty_id String          @db.Uuid
+  language_code      String
+  name               String
+  slug               String
+  ingredients        String?
+  description        String?
+  created_at         DateTime        @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime        @default(now()) @db.Timestamptz(6)
+  local_specialty    Local_Specialty @relation(fields: [local_specialty_id], references: [id])
+  language           Language        @relation(fields: [language_code], references: [code])
+}
+
+model Cultural_Art {
+  id           String                     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image        String
+  list_image   Json?
+  link_video   String?
+  address_id   String?                    @db.Uuid
+  category_id  String?                    @db.Uuid
+  is_active    Boolean?                   @default(true)
+  is_featured  Boolean?                   @default(false)
+  views        Int?                       @default(0)
+  position     Int?                       @default(0)
+  created_at   DateTime                   @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime                   @default(now()) @db.Timestamptz(6)
+  address      Address?                   @relation(fields: [address_id], references: [id])
+  category     Category?                  @relation(fields: [category_id], references: [id])
+  translations Cultural_Art_Translation[]
+}
+
+model Cultural_Art_Translation {
+  id              String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  cultural_art_id String       @db.Uuid
+  language_code   String
+  name            String
+  slug            String
+  description     String?
+  created_at      DateTime     @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime     @default(now()) @db.Timestamptz(6)
+  cultural_art    Cultural_Art @relation(fields: [cultural_art_id], references: [id])
+  language        Language     @relation(fields: [language_code], references: [code])
+
+  @@unique([cultural_art_id, language_code])
+}

@@ -73,6 +73,7 @@ export function SiteHeader() {
                   (item.href !== '/' && pathname?.startsWith(item.href));
 
                 return (
+                  // chỉnh màu , kích thước chữ, thêm dấu gạch dưới khi active
                   <Link
                     key={item.href}
                     href={item.href}
@@ -93,9 +94,9 @@ export function SiteHeader() {
 
             {/* Khu vực Actions */}
             <div className='flex items-center gap-1 sm:gap-2'>
-              <button className='p-2 text-slate-600 hover:text-orange-500 transition-colors'>
+              <Link href='/search' className='p-2 text-slate-600 hover:text-orange-500 transition-colors'>
                 <Search className='h-5 w-5' />
-              </button>
+              </Link>
 
               {/* Ô chọn ngôn ngữ cho Desktop */}
               <div className='hidden lg:block'>

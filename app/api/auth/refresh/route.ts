@@ -1,46 +1,64 @@
-import { NextRequest, NextResponse } from "next/server";
-import axios from "axios";
+import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
+import { cookies } from "next/headers";
 
-export async function POST(req: NextRequest) {
-  const refreshToken = req.cookies.get("refresh_token")?.value;
-
-  if (!refreshToken) {
-    return NextResponse.json({ error: "Không tìm thấy Refresh Token" }, { status: 401 });
-  }
-
+export async function POST(request: Request) {
   try {
-    // Gửi refresh token qua Laravel
-    const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/auth/refresh-token`, {
-      refresh_token: refreshToken,
+    const cookieStore = await cookies();
+    const refreshToken = cookieStore.get("refresh_token")?.value;
+
+    if (!refreshToken) {
+      return NextResponse.json(
+        { success: false, message: "Thiếu refresh_token trong cookie" },
+        { status: 400 }
+      );
+    }
+
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      { auth: { persistSession: false } }
+    );
+
+    const { data, error } = await supabase.auth.refreshSession({ refresh_token: refreshToken });
+
+    if (error || !data.session) {
+      return NextResponse.json(
+        { success: false, message: "Không thể refresh token" },
+        { status: 401 }
+      );
+    }
+
+    const response = NextResponse.json({
+      success: true,
+      message: "Refresh token thành công!",
+      access_token: data.session.access_token,
     });
 
-    const { access_token, refresh_token: new_refresh_token } = response.data;
-    const res = NextResponse.json({ success: true });
-    const isProduction = process.env.NODE_ENV === "production";
-
-    // Ghi đè cặp cookie HttpOnly mới toanh
-    res.cookies.set("access_token", access_token, {
+    // SET LẠI COOKIE MỚI VÀO BROWSER (Giống hệt cách handle-auth.ts set cookie lúc login)
+    response.cookies.set("access_token", data.session.access_token, {
+      httpOnly: true, // Phải là true để bảo mật giống bên server action login
+      secure: process.env.NODE_ENV === "production",
       path: "/",
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      secure: isProduction,
-      httpOnly: true,
       sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 7, // 7 days
     });
 
-    res.cookies.set("refresh_token", new_refresh_token, {
-      path: "/",
-      expires: new Date(Date.now() + 100 * 24 * 60 * 60 * 1000),
-      secure: isProduction,
-      httpOnly: true,
-      sameSite: "lax",
-    });
+    if (data.session.refresh_token) {
+      response.cookies.set("refresh_token", data.session.refresh_token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        path: "/",
+        maxAge: 60 * 60 * 24 * 30, // 30 days
+      });
+    }
 
-    return res;
-  } catch (error) {
-    
-    const res = NextResponse.json({ error: "Refresh token hết hạn" }, { status: 401 });
-    res.cookies.delete("access_token");
-    res.cookies.delete("refresh_token");
-    return res;
+    return response;
+  } catch (error: any) {
+    console.error("Refresh Error:", error);
+    return NextResponse.json(
+      { success: false, message: "Lỗi khi refresh token" },
+      { status: 500 }
+    );
   }
 }

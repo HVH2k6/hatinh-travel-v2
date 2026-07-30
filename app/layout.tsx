@@ -22,6 +22,8 @@ import { AuthProvider } from '@/providers/auth-provider';
 import { cookies } from 'next/headers';
 import api from "@/lib/axios";
 
+import prisma from "@/lib/prisma";
+
 async function getMeFromServer() {
   const cookieStore = await cookies();
   const accessToken = cookieStore.get("access_token")?.value;
@@ -29,13 +31,22 @@ async function getMeFromServer() {
   if (!accessToken) return null;
 
   try {
-    // Gọi trực tiếp sang Laravel từ Server Next.js kèm theo Cookie thu được
-    const response = await api.get(`${process.env.NEXT_PUBLIC_URL}/auth/me`, {
+    // Dùng fetch thuần túy trên Server để tránh kích hoạt Axios Interceptor (dành riêng cho Client)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/auth/me`, {
+      method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json"
       },
     });
-    return response.data.user;
+
+    if (!response.ok) {
+      // Nếu 401 (hết hạn), trả về null. Client AuthProvider sẽ tự động gọi lại và kích hoạt Refresh Token!
+      return null;
+    }
+
+    const data = await response.json();
+    return data.user;
   } catch (error) {
     return null;
   }
@@ -45,14 +56,22 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const user = await getMeFromServer() 
+  const user = await getMeFromServer();
+
+  // Lấy dữ liệu ngôn ngữ trực tiếp từ Server (Prisma)
+  const languages = await prisma.language.findMany({
+    where: { is_active: true },
+    orderBy: { created_at: "desc" },
+  });
+
   return (
     <html>
       <body>
         {/* Bọc Provider ở đây để giữ trạng thái API mãi mãi */}
-        <LanguageProvider>
+        <LanguageProvider initialLanguages={languages}>
           <AuthProvider initialUser={user}>{children}</AuthProvider>
         </LanguageProvider>
+        {/* {children} */}
       </body>
     </html>
   );

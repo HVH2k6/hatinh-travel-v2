@@ -19,15 +19,15 @@ export async function handleServerLogin(data: any, currentLang: string) {
     // 2. Set cookie dạng HttpOnly (Bảo mật XSS tuyệt đối)
     cookieStore.set('access_token', access_token, {
       path: '/',
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 60 * 15 * 1000), // 15 minutes
       secure: isProduction,
-      httpOnly: true, // Mã JS ở Client không sờ vào được
+      httpOnly: true,
       sameSite: 'lax',
     });
 
     cookieStore.set('refresh_token', refresh_token, {
       path: '/',
-      expires: new Date(Date.now() + 100 * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 100 * 24 * 60 * 60 * 365),
       secure: isProduction,
       httpOnly: true,
       sameSite: 'lax',

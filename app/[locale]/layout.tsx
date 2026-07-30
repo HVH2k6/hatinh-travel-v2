@@ -25,7 +25,7 @@ export default async function LocaleLayout({
   return (
     <div lang={locale}>
       <NextIntlClientProvider messages={messages}>
-        <SiteHeader /> {/* Không cần truyền prop dict thủ công nữa! */}
+        <SiteHeader />
         <main>{children}</main>
       </NextIntlClientProvider>
     </div>

@@ -20,21 +20,21 @@ const AuthContext = createContext<AuthContextType>({
 
 interface AuthProviderProps {
   children: React.ReactNode;
-  initialUser: IUser | null; // <-- Nhận data từ Server truyền xuống
+  initialUser: IUser | null;
 }
 
 export const AuthProvider = ({ children, initialUser }: AuthProviderProps) => {
   const [user, setUser] = useState<IUser | null>(initialUser);
-  const [isLoading, setIsLoading] = useState(!initialUser); // Nếu có sẵn user từ server thì ko cần loading
+  const [isLoading, setIsLoading] = useState(!initialUser);
 
   useEffect(() => {
-    // Nếu Server không tìm thấy user (chưa đăng nhập hoặc token hết hạn),
-    // nhưng nhỡ đâu interceptor client có thể cứu vãn hoặc cần fetch lại:
     if (!initialUser) {
       const fetchUser = async () => {
         try {
           const response = await api.get(`/auth/me`);
-          setUser(response.data.user);
+          if (response.data && response.data.user) {
+            setUser(response.data.user);
+          }
         } catch (error) {
           setUser(null);
         } finally {
@@ -46,23 +46,18 @@ export const AuthProvider = ({ children, initialUser }: AuthProviderProps) => {
   }, [initialUser]);
 
   const logout = async () => {
-    const logout = async () => {
-      try {
-        setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-        // 1. Gọi lên Route Handler của Next.js để server xóa cookie httpOnly
-        await api.post('/auth/logout');
-      } catch (error) {
-        console.error('Lỗi khi gọi API logout:', error);
-      } finally {
-        // 2. Xóa sạch state user ở Client dù API có lỗi hay thành công
-        setUser(null);
-        setIsLoading(false);
+      await api.post('/auth/logout');
+    } catch (error) {
+      console.error('Lỗi khi gọi API logout:', error);
+    } finally {
+      setUser(null);
+      setIsLoading(false);
 
-        // 3. Đá user về trang chủ hoặc trang login và xóa sạch bộ nhớ tạm (clear state)
-        window.location.href = '/';
-      }
-    };
+      window.location.href = '/';
+    }
   };
 
   return (

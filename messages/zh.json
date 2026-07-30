@@ -8,21 +8,58 @@
     "login": "登录",
     "setting": "设置",
     "logout": "退出登录",
-     "history": "查看注册历史"
+    "history": "查看注册历史"
   },
   "home": {
+    "title": {
+      "attraction": "热门旅游景点",
+      "local_specialty": "河静特色产品",
+      "cultural_art": "越南河静的文化艺术"
+    },
     "hero": {
       "title": "河静：探索隐藏之美",
-      "description": "从原始、雄伟的海滩到庄严的历史遗迹，河静邀请您体验一段独特而完整的旅程。",
-      "ctaSeePlaces": "查看地点",
-      "ctaPlanTrip": "制定计划"
+      "description": "从原始纯净的海滩、壮丽的自然风光，到庄严的历史遗迹，河静诚邀您开启一段独特而难忘的旅程。",
+      "ctaSeePlaces": "探索景点",
+      "ctaPlanTrip": "规划行程"
     },
-    "title": {
-      "attraction": "热门旅游景点"
+    "welcome": {
+      "tagline": "欢迎来到河静",
+      "heading": "探索人杰地灵之地",
+      "description": "河静不仅以诗意的蓝江和雄伟的横山吸引游客，更以悠久的文化底蕴、热情好客的民风以及独具特色的地方美食令人流连忘返。",
+      "stat_destinations": "旅游景点",
+      "stat_safe": "安全友好",
+      "stat_visitors": "游客数量",
+      "stat_days": "体验天数"
+    },
+    "about": {
+      "section_tag": "地区介绍",
+      "heading": "大海与群山交汇之地",
+      "paragraph_1": "河静位于越南中部阳光充沛的地区，拥有绵长而迷人的海岸线，包括天琴海滩、春城海滩等著名旅游胜地，以及同禄三岔路口、阮攸纪念馆等国家级历史文化遗址。",
+      "paragraph_2": "来到河静，您将欣赏到被联合国教科文组织列入非物质文化遗产名录的乂静维、监民歌，感受宁静祥和的氛围，并重温辉煌的历史记忆。"
+    },
+    "timeline": {
+      "heading": "旅游发展历程",
+      "subtitle": "河静旅游业的发展之路",
+      "phase_1_title": "起步与探索",
+      "phase_1_desc": "重点保护重要历史遗迹，并发掘原生态海滨旅游资源。",
+      "phase_2_title": "基础设施突破",
+      "phase_2_desc": "升级重要交通线路，扩建天琴和春城等旅游度假区。",
+      "phase_3_title": "数字化转型与文化传承",
+      "phase_3_desc": "推动维监民歌走向世界，并建设智慧旅游数字平台。",
+      "phase_4_title": "绿色可持续旅游",
+      "phase_4_desc": "发展生态旅游和社区旅游，实现旅游与自然保护协调发展。"
+    },
+    "cta": {
+      "heading": "规划您的河静之旅",
+      "description": "不要错过亲身感受河静宁静之美、聆听维监民歌、品尝香甜可口的古多糖饼的机会。",
+      "button": "立即开始探索"
     }
   },
   "card": {
     "attraction": {
+      "explore": "探索"
+    },
+    "local_specialty": {
       "explore": "探索"
     }
   },
@@ -84,7 +121,8 @@
   },
   "market": {
     "registerLink": "如果您需要开设商店，请点击这里",
-     "history": "查看注册历史"
+    "history": "查看注册历史",
+    "title": "商店列表"
   },
   "seller": {
     "title": "卖家注册",
@@ -121,7 +159,7 @@
       "upload_back": "请上传身份证背面照片"
     }
   },
-    "seller_history": {
+  "seller_history": {
     "title": "卖家申请记录",
     "description": "跟踪您的店铺注册申请状态。",
     "empty": "您尚未提交任何卖家申请。",
@@ -135,5 +173,45 @@
       "approved": "已批准",
       "rejected": "已拒绝"
     }
+  },
+  "shop_detail": {
+    "back_button": "返回",
+    "reviews_count": "（{count}条评价）",
+    "views_count": "{count}次浏览",
+    "contact_button": "立即联系",
+    "joined_at": "加入于 {date}",
+    "about_title": "店铺介绍",
+    "no_description": "店主尚未更新详细介绍内容。",
+    "address_title": "店铺地址",
+    "map_syncing": "地图数据正在同步中...",
+    "products_title": "正在出售的特色产品"
+  },
+  "product_detail": {
+    "back_button": "返回",
+    "featured_badge": "特色精选",
+    "price_label": "价格",
+    "unit_label": "单位",
+    "policy_quality": "承诺提供正宗河静特产，严格保障食品安全",
+    "policy_shipping": "全国快速配送，包装安全可靠",
+    "buy_now_button": "订购商品",
+    "description_title": "商品详情",
+    "no_description": "暂无该商品的详细介绍。",
+    "shop_section_title": "供应商",
+    "visit_shop_button": "访问店铺"
+  },
+  "search": {
+    "title": "搜索",
+    "placeholder": "搜索景点、特产、文化...",
+    "filter_type": "类型",
+    "type_all": "全部",
+    "type_attraction": "旅游景点",
+    "type_specialty": "地方特产",
+    "type_art": "文化艺术",
+    "sort_by": "排序方式",
+    "sort_latest": "最新",
+    "sort_views": "浏览量最多",
+    "no_results": "未找到相关结果",
+    "button": "搜索",
+    "views": "次浏览"
   }
 }

@@ -70,7 +70,7 @@ export async function POST(request: Request) {
 
       // Ưu tiên 1: uri gốc
       if (dataBlock.uri) {
-        finalUrl = `https://p16-sg.tiktokcdn.com/obj/${dataBlock.uri}`;
+        finalUrl = `https://p16-webcast.tiktokcdn.com/obj/${dataBlock.uri}`;
       } else {
         // Fallback bốc nối chuỗi
         let webUri = dataBlock.original_img_uri || null;

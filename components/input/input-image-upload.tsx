@@ -35,18 +35,18 @@ const InputUploadSingleFile = <T extends FieldValues>({
 
         const handleUpload = async (file: File) => {
           const formData = new FormData();
-          
-          // QUAN TRỌNG: API backend yêu cầu key là 'image' thay vì 'file'
-          formData.append('image', file); 
-          
+
+          formData.append('file', file);
+          formData.append('name', file.name);
+
           setLoading(true);
           try {
             // Sửa URL này nếu API route của bạn có tên khác (ví dụ: /api/upload)
-            const res = await axios.post(`/api/upload-image-single`, formData);
-            
+            const res = await axios.post(`https://anhviafb.com/api/v1/image-upload`, formData);
+            console.log(res.data);
             // Xử lý dựa theo cấu trúc json backend trả về
-            if (res.data && res.data.success) {
-              onChange(res.data.url); // Đẩy URL của TikTok CDN vào form
+            if (res.data && res.data.success && res.data.image_url) {
+              onChange(res.data.image_url); // Đẩy URL của TikTok CDN vào form
             } else {
               console.error('API Error:', res.data.message);
               alert(res.data.message || 'Lỗi từ server khi upload ảnh.');
@@ -75,7 +75,7 @@ const InputUploadSingleFile = <T extends FieldValues>({
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (file) handleUpload(file);
-                
+
                 // Reset value của input file để có thể chọn lại chính file đó nếu vừa xóa
                 e.target.value = '';
               }}
@@ -84,9 +84,14 @@ const InputUploadSingleFile = <T extends FieldValues>({
             {!value && !loading && (
               <Label
                 htmlFor={`file-${name}`}
-                className="cursor-pointer w-max h-10 rounded-lg flex items-center justify-center bg-slate-600 hover:bg-slate-700 text-white font-medium px-3 transition-colors shadow-sm"
+                className={`cursor-pointer w-full h-32 border-2 border-dashed rounded-xl flex flex-col items-center justify-center transition-colors shadow-sm
+                  ${error ? 'border-red-400 bg-red-50 hover:bg-red-100' : 'border-slate-300 bg-slate-50 hover:bg-slate-100'}
+                `}
               >
-                <UploadCloud/>
+                <div className="flex flex-col items-center gap-2 text-slate-500">
+                  <UploadCloud className="w-8 h-8" />
+                  <span className="text-sm font-medium">Nhấn để tải ảnh lên</span>
+                </div>
               </Label>
             )}
 
@@ -115,10 +120,14 @@ const InputUploadSingleFile = <T extends FieldValues>({
             )}
 
             {loading && (
-              <div className="flex items-center text-sm font-medium text-muted-foreground gap-2 h-10">
-                <Loader2 className="w-4 h-4 animate-spin text-orange-500" />
-                
+              <div className="w-full h-32 border-2 border-dashed border-slate-300 rounded-xl flex flex-col items-center justify-center bg-slate-50">
+                <Loader2 className="w-8 h-8 animate-spin text-orange-500 mb-2" />
+                <span className="text-sm text-slate-500 font-medium">Đang tải ảnh lên...</span>
               </div>
+            )}
+
+            {error && (
+              <p className="text-sm font-medium text-red-500 mt-1">{error.message}</p>
             )}
           </div>
         );

@@ -11,19 +11,71 @@
     "history": "View registration history"
   },
   "home": {
+    "title": {
+      "attraction": "Tourist Attractions",
+      "local_specialty": "Ha Tinh Local Specialties",
+      "cultural_art": "Cultural Arts of Ha Tinh"
+    },
     "hero": {
-      "title": "Hà Tĩnh: Discover the Hidden Beauty",
-      "description": "From pristine, majestic beaches to solemn historical sites, Hà Tĩnh invites you to experience a unique and complete journey.",
-      "ctaSeePlaces": "Explore Places",
+      "title": "Ha Tinh: Discover Hidden Beauty",
+      "description": "From pristine beaches and majestic landscapes to historic landmarks rich in heritage, Ha Tinh invites you to embark on a unique and unforgettable journey.",
+      "ctaSeePlaces": "Explore Destinations",
       "ctaPlanTrip": "Plan Your Trip"
     },
-    "title": {
-      "attraction": "Featured Destinations"
+    "welcome": {
+      "tagline": "Welcome to Ha Tinh",
+      "heading": "Discover a Land of Heritage and Talent",
+      "description": "Ha Tinh captivates visitors not only with the poetic Lam River and the majestic Hoanh Son Mountain Range, but also with its rich cultural heritage, warm hospitality, and distinctive local cuisine.",
+      "stat_destinations": "Attractions",
+      "stat_safe": "Safe & Friendly",
+      "stat_visitors": "Visitors",
+      "stat_days": "Days of Experience"
+    },
+    "about": {
+      "section_tag": "About the Region",
+      "heading": "Where the Sea Meets the Mountains",
+      "paragraph_1": "Located in Vietnam’s sun-drenched central region, Ha Tinh boasts a stunning coastline with famous beaches such as Thien Cam and Xuan Thanh, alongside nationally significant historical sites including Dong Loc Junction and the Memorial Site of the Great Poet Nguyen Du.",
+      "paragraph_2": "A visit to Ha Tinh is a chance to experience the soulful melodies of Vi and Giam folk songs, recognized by UNESCO as an Intangible Cultural Heritage, while enjoying a peaceful atmosphere that reconnects visitors with nature and history."
+    },
+    "timeline": {
+      "heading": "Tourism Development Timeline",
+      "subtitle": "The journey of Ha Tinh’s tourism growth",
+      "phase_1_title": "Foundation & Discovery",
+      "phase_1_desc": "Focused on preserving key historical landmarks and uncovering the potential of pristine coastal destinations.",
+      "phase_2_title": "Infrastructure Breakthrough",
+      "phase_2_desc": "Major investments in transportation networks and the expansion of resorts in Thien Cam and Xuan Thanh.",
+      "phase_3_title": "Digital Transformation & Heritage",
+      "phase_3_desc": "Promoting Vi and Giam folk culture globally while integrating smart tourism maps and digital experiences.",
+      "phase_4_title": "Sustainable Green Tourism",
+      "phase_4_desc": "Advancing eco-tourism and community-based tourism while preserving the region’s natural environment."
+    },
+    "cta": {
+      "heading": "Plan Your Ha Tinh Adventure",
+      "description": "Don’t miss the opportunity to experience Ha Tinh’s tranquil beauty, enjoy the melodies of Vi and Giam folk songs, and savor the famous Cu Do peanut candy.",
+      "button": "Start Exploring Now"
     }
   },
   "card": {
     "attraction": {
       "explore": "Explore"
+    },
+    "local_specialty": {
+      "explore": "Explore"
+    }
+  },
+  "specialty": {
+    "detail": {
+      "home": "Home",
+      "views": "views",
+      "photo_gallery": "Product Photo Gallery",
+      "image_viewer": "Specialty Image Viewer",
+      "product_info": "Specialty Product Details",
+      "price_label": "Reference Price",
+      "contact_price": "Contact for Price",
+      "unit_label": "Measurement Unit",
+      "ingredients_label": "Core Ingredients",
+      "origin_location": "Origin / Production Place",
+      "view_origin_map": "View Production Map"
     }
   },
   "login": {
@@ -84,7 +136,8 @@
   },
   "market": {
     "registerLink": "If you need to open a store, click here",
-    "history": "View registration history"
+    "history": "View registration history",
+    "title": "List shops"
   },
   "seller": {
     "title": "Seller Registration",
@@ -129,11 +182,62 @@
     "th_phone": "Phone Number",
     "th_date": "Submitted Date",
     "th_status": "Status",
-     "th_rejection": "Rejection Reason",
+    "th_rejection": "Rejection Reason",
     "status": {
       "pending": "Pending",
       "approved": "Approved",
       "rejected": "Rejected"
     }
+  },
+  "shop_detail": {
+    "back_button": "Back",
+    "reviews_count": "({count} reviews)",
+    "views_count": "{count} views",
+    "contact_button": "Contact Now",
+    "joined_at": "Joined since {date}",
+    "about_title": "About Store",
+    "no_description": "The store owner hasn't updated the description yet.",
+    "address_title": "Store Address",
+    "map_syncing": "Map data is being synchronized...",
+    "products_title": "Featured Specialty Products"
+  },
+  "product_detail": {
+    "back_button": "Back",
+    "featured_badge": "Featured Specialty",
+    "price_label": "Price",
+    "unit_label": "Unit",
+    "policy_quality": "Commitment to authentic Ha Tinh specialties, high food safety",
+    "policy_shipping": "Fast nationwide delivery with secure packaging",
+    "buy_now_button": "Order Product",
+    "description_title": "Product Details",
+    "no_description": "No detailed description available for this product.",
+    "shop_section_title": "Provided by",
+    "visit_shop_button": "Visit Store"
+  },
+  "review_form": {
+    "create_title": "Submit Your Review",
+    "edit_title": "Edit Your Review",
+    "subtitle": "Share your actual experience to help the community",
+    "content_label": "Review Content",
+    "placeholder": "Great quality, fast shipping, deeply recommended...",
+    "image_label": "Real Photos (Max 5 photos)",
+    "cancel_button": "Cancel",
+    "submit_create_button": "Submit Review",
+    "submit_edit_button": "Update Post"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search attractions, specialties, culture...",
+    "filter_type": "Type",
+    "type_all": "All",
+    "type_attraction": "Tourist Attractions",
+    "type_specialty": "Local Specialties",
+    "type_art": "Cultural Arts",
+    "sort_by": "Sort by",
+    "sort_latest": "Latest",
+    "sort_views": "Most Viewed",
+    "no_results": "No results found",
+    "button": "Search",
+    "views": "views"
   }
 }

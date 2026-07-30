@@ -8,21 +8,58 @@
     "login": "로그인",
     "setting": "설정",
     "logout": "로그아웃",
-     "history": "등록 내역 보기"
+    "history": "등록 내역 보기"
   },
   "home": {
-    "hero": {
-      "title": "하띤: 숨겨진 아름다움을 발견하세요",
-      "description": "깨끗하고 웅장한 해변부터 엄숙한 역사 유적지까지, 하띤은 특별하고 완벽한 여행 경험으로 여러분을 초대합니다.",
-      "ctaSeePlaces": "명소 둘러보기",
-      "ctaPlanTrip": "여행 계획하기"
-    },
     "title": {
-      "attraction": "人気観光スポット"
+      "attraction": "人気観光スポット",
+      "local_specialty": "ハティンの特産品",
+      "cultural_art": "ベトナムハティン省の文化芸術"
+    },
+    "hero": {
+      "title": "ハティン：秘められた美しさを発見",
+      "description": "手つかずの美しいビーチや壮大な自然景観、歴史ある文化遺産まで、ハティンは特別で忘れられない旅へとあなたを誘います。",
+      "ctaSeePlaces": "観光スポットを見る",
+      "ctaPlanTrip": "旅行を計画する"
+    },
+    "welcome": {
+      "tagline": "ハティンへようこそ",
+      "heading": "歴史と文化が息づく地を巡る",
+      "description": "ハティンは、美しいラム川や雄大なホアンソン山脈だけでなく、豊かな文化遺産、人々の温かなおもてなし、そして魅力あふれる郷土料理でも訪れる人々を魅了します。",
+      "stat_destinations": "観光スポット",
+      "stat_safe": "安全・快適",
+      "stat_visitors": "訪問者数",
+      "stat_days": "体験日数"
+    },
+    "about": {
+      "section_tag": "地域紹介",
+      "heading": "海と山が出会う場所",
+      "paragraph_1": "ベトナム中部の陽光あふれる地域に位置するハティンは、ティエンカムビーチやスアンタインビーチなどの美しい海岸線を有し、さらにドンロック交差点や大詩人グエン・ズー記念館といった国家的な歴史遺産も数多く残されています。",
+      "paragraph_2": "ハティンでは、ユネスコ無形文化遺産に登録されたヴィ・ザム民謡の美しい旋律を楽しみながら、穏やかな時間の中で歴史と文化に触れることができます。"
+    },
+    "timeline": {
+      "heading": "観光発展の歩み",
+      "subtitle": "ハティン観光産業の成長の軌跡",
+      "phase_1_title": "基盤形成と発見",
+      "phase_1_desc": "主要な歴史遺跡の保護と、自然豊かな海岸観光資源の開発に注力。",
+      "phase_2_title": "インフラ整備の飛躍",
+      "phase_2_desc": "主要道路の整備や、ティエンカム・スアンタイン観光リゾートの拡張を実施。",
+      "phase_3_title": "デジタル化と文化遺産",
+      "phase_3_desc": "ヴィ・ザム民謡を世界へ発信し、スマート観光マップなどのデジタルサービスを導入。",
+      "phase_4_title": "持続可能なグリーンツーリズム",
+      "phase_4_desc": "自然環境の保全と調和したエコツーリズムや地域密着型観光を推進。"
+    },
+    "cta": {
+      "heading": "ハティン旅行を計画しましょう",
+      "description": "ハティンの穏やかな魅力を体感し、ヴィ・ザム民謡を楽しみ、名物のクードー菓子を味わう機会をお見逃しなく。",
+      "button": "今すぐ探索を始める"
     }
   },
   "card": {
     "attraction": {
+      "explore": "탐험"
+    },
+    "local_specialty": {
       "explore": "탐험"
     }
   },
@@ -84,7 +121,8 @@
   },
   "market": {
     "registerLink": "상점을 개설하려면 여기를 클릭하세요",
-      "history": "등록 내역 보기"
+    "history": "등록 내역 보기",
+    "title": "상점 목록"
   },
   "seller": {
     "title": "판매자 등록",
@@ -121,21 +159,59 @@
       "upload_back": "신분증 뒷면 이미지를 업로드해주세요."
     }
   },
-  
-    "seller_history": {
-      "title": "판매자 신청 내역",
-      "description": "스토어 등록 신청 상태를 확인하세요.",
-      "empty": "아직 판매자 신청서를 제출하지 않았습니다.",
-      "th_shop_name": "상점 이름",
-      "th_phone": "전화번호",
-      "th_date": "신청 날짜",
-      "th_status": "상태",
-      "th_rejection": "거절 사유",
-      "status": {
-        "pending": "대기 중",
-        "approved": "승인됨",
-        "rejected": "거절됨"
-      }
-    
+  "seller_history": {
+    "title": "판매자 신청 내역",
+    "description": "스토어 등록 신청 상태를 확인하세요.",
+    "empty": "아직 판매자 신청서를 제출하지 않았습니다.",
+    "th_shop_name": "상점 이름",
+    "th_phone": "전화번호",
+    "th_date": "신청 날짜",
+    "th_status": "상태",
+    "th_rejection": "거절 사유",
+    "status": {
+      "pending": "대기 중",
+      "approved": "승인됨",
+      "rejected": "거절됨"
+    }
+  },
+  "shop_detail": {
+    "back_button": "뒤로",
+    "reviews_count": "({count}개 후기)",
+    "views_count": "{count}회 조회",
+    "contact_button": "지금 문의하기",
+    "joined_at": "{date}부터 가입",
+    "about_title": "상점 소개",
+    "no_description": "상점 주인이 아직 상세 소개를 등록하지 않았습니다.",
+    "address_title": "상점 주소",
+    "map_syncing": "지도 데이터를 동기화하는 중...",
+    "products_title": "판매 중인 지역 특산품"
+  },
+  "product_detail": {
+    "back_button": "뒤로",
+    "featured_badge": "추천 특산품",
+    "price_label": "가격",
+    "unit_label": "단위",
+    "policy_quality": "정통 하띤 특산품과 높은 식품 안전 기준 보장",
+    "policy_shipping": "안전한 포장으로 전국 빠른 배송",
+    "buy_now_button": "상품 주문",
+    "description_title": "상품 상세정보",
+    "no_description": "이 상품에 대한 상세 설명이 없습니다.",
+    "shop_section_title": "제공 업체",
+    "visit_shop_button": "상점 방문"
+  },
+  "search": {
+    "title": "검색",
+    "placeholder": "관광지, 특산품, 문화 검색...",
+    "filter_type": "유형",
+    "type_all": "전체",
+    "type_attraction": "관광 명소",
+    "type_specialty": "지역 특산품",
+    "type_art": "문화 예술",
+    "sort_by": "정렬 기준",
+    "sort_latest": "최신순",
+    "sort_views": "조회수 순",
+    "no_results": "검색 결과가 없습니다",
+    "button": "검색",
+    "views": "조회수"
   }
 }

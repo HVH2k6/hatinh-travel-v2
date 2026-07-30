@@ -18,11 +18,16 @@
       "ctaPlanTrip": "旅行を計画する"
     },
     "title": {
-      "attraction": "人気観光スポット"
+      "attraction": "人気観光スポット",
+      "local_specialty": "特産品",
+      "cultural_art": "文化と芸術"
     }
   },
   "card": {
     "attraction": {
+      "explore": "探索"
+    },
+    "local_specialty": {
       "explore": "探索"
     }
   },
@@ -84,7 +89,8 @@
   },
   "market": {
     "registerLink": "ショップを開設したい場合はここをクリックしてください",
-    "history": "登録履歴を見る"
+    "history": "登録履歴を見る",
+    "title": "店舗一覧"
   },
   "seller": {
     "title": "販売者登録",
@@ -121,7 +127,7 @@
       "upload_back": "身分証明書の裏面画像をアップロードしてください。"
     }
   },
-    "seller_history": {
+  "seller_history": {
     "title": "販売者申請履歴",
     "description": "店舗登録申請のステータスを確認できます。",
     "empty": "まだ販売者申請を送信していません。",
@@ -129,11 +135,51 @@
     "th_phone": "電話番号",
     "th_date": "申請日",
     "th_status": "ステータス",
-        "th_rejection": "却下理由",
+    "th_rejection": "却下理由",
     "status": {
       "pending": "保留中",
       "approved": "承認済み",
       "rejected": "却下"
     }
+  },
+  "shop_detail": {
+    "back_button": "戻る",
+    "reviews_count": "（{count}件のレビュー）",
+    "views_count": "{count}回閲覧",
+    "contact_button": "今すぐ連絡",
+    "joined_at": "{date}に参加",
+    "about_title": "ショップ紹介",
+    "no_description": "ショップオーナーはまだ詳細な紹介文を更新していません。",
+    "address_title": "ショップ住所",
+    "map_syncing": "地図データを同期中...",
+    "products_title": "販売中の特産品"
+  },
+  "product_detail": {
+    "back_button": "戻る",
+    "featured_badge": "注目の特産品",
+    "price_label": "価格",
+    "unit_label": "単位",
+    "policy_quality": "本場のハティン特産品と高い食品安全基準を保証",
+    "policy_shipping": "安全な梱包で全国へ迅速配送",
+    "buy_now_button": "商品を注文",
+    "description_title": "商品詳細",
+    "no_description": "この商品の詳細説明はありません。",
+    "shop_section_title": "提供元",
+    "visit_shop_button": "店舗を見る"
+  },
+  "search": {
+    "title": "検索",
+    "placeholder": "観光地、特産品、文化を検索...",
+    "filter_type": "種類",
+    "type_all": "すべて",
+    "type_attraction": "観光スポット",
+    "type_specialty": "地元特産品",
+    "type_art": "文化芸術",
+    "sort_by": "並び替え",
+    "sort_latest": "最新順",
+    "sort_views": "閲覧数順",
+    "no_results": "検索結果が見つかりません",
+    "button": "検索",
+    "views": "閲覧数"
   }
 }

@@ -30,6 +30,7 @@ import {
 import { TouristAttraction } from '@/interface/IAttraction';
 import { useSlugStore } from '@/store/use-slug-store';
 import { formatCurrency } from '@/lib/format-currency';
+import ReviewSection from '@/components/review/review-section';
 
 interface AttractionDetailViewProps {
   item: TouristAttraction;
@@ -45,50 +46,12 @@ export function AttractionDetailView({ item }: AttractionDetailViewProps) {
     if (item.slugs) {
       setCurrentSlugs(item.slugs);
     }
-    // Cleanup: Xóa data khi rời khỏi trang
+
     return () => {
       setCurrentSlugs(null);
     };
   }, [item.slugs, setCurrentSlugs]);
-  // ===============================
-  React.useEffect(() => {
-    let isMounted = true;
 
-    const syncRealViewCount = async () => {
-      try {
-        const cleanSlug = encodeURIComponent(item.slug);
-        // Gọi lại API Detail trực tiếp từ Client, ép 'no-store' để chọc thủng Cache của Next.js
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_URL}/tourist-attractions/${cleanSlug}`,
-          {
-            cache: 'no-store',
-          },
-        );
-
-        if (res.ok) {
-          const json = await res.json();
-          if (json.data && isMounted) {
-            // Lấy đúng con số thực tế từ DB đè lên số bị cache
-            setViewCount(json.data.view_count);
-          }
-        }
-      } catch (error) {
-        // Lỗi thì thôi, cứ dùng tạm số view bị cache cũng không sao
-      }
-    };
-
-    if (item.slug) {
-      syncRealViewCount();
-    }
-
-    return () => {
-      isMounted = false;
-    };
-  }, [item.slug]);
-
-  // =================================================================
-  // 2. SAU 10 GIÂY: MỚI GỌI API ĐỂ CỘNG THÊM 1 LƯỢT XEM VÀO DB
-  // =================================================================
   React.useEffect(() => {
     let isMounted = true;
     let viewTimer: NodeJS.Timeout;
@@ -98,18 +61,14 @@ export function AttractionDetailView({ item }: AttractionDetailViewProps) {
       hasCalledView.current = true;
 
       try {
-        const cleanSlug = encodeURIComponent(item.slug);
-
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_URL}/tourist-attractions/${cleanSlug}/view`,
-          {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
+        const res = await fetch('/api/attractions/view', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
-        );
+          body: JSON.stringify({ id: item.id }),
+        });
 
         if (res.ok) {
           const data = await res.json();
@@ -124,18 +83,17 @@ export function AttractionDetailView({ item }: AttractionDetailViewProps) {
       }
     };
 
-    if (item.slug) {
-      // Đợi 10s mới cộng view (lọc view ảo)
+    if (item.id) {
       viewTimer = setTimeout(() => {
         incrementView();
-      }, 10000);
+      }, 5000); // Tối ưu UX: Chờ 5 giây thay vì 10 giây để ghi nhận view
     }
 
     return () => {
       isMounted = false;
       if (viewTimer) clearTimeout(viewTimer);
     };
-  }, [item.slug]);
+  }, [item.id]);
 
   const albumImages = React.useMemo(() => {
     const images: string[] = [];
@@ -146,13 +104,12 @@ export function AttractionDetailView({ item }: AttractionDetailViewProps) {
     return images;
   }, [item.image, item.sub_image]);
 
- const formatPrice = (min: number, max: number) => {
+  const formatPrice = (min: number, max: number) => {
     if (max === 0) return t('free');
-    
-    // Ném trực tiếp min_price, max_price (tiền VNĐ) và locale vào hàm
+
     const formattedMin = formatCurrency(min, currentLocale);
     const formattedMax = formatCurrency(max, currentLocale);
-    
+
     return `${formattedMin} - ${formattedMax}`;
   };
 
@@ -277,6 +234,7 @@ export function AttractionDetailView({ item }: AttractionDetailViewProps) {
                 dangerouslySetInnerHTML={{ __html: item.description }}
               />
             </div>
+            <ReviewSection type='location' id={item.id} />
           </div>
 
           {/* CỘT PHẢI */}
