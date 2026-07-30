@@ -35,10 +35,10 @@ async function getAttractionDetail(slug: string, locale: string): Promise<Touris
     if (!dbAttraction) return null;
 
     // 3. Map dữ liệu
-    const translation = dbAttraction.translations.find(t => t.language_code === locale) || dbAttraction.translations.find(t => t.language_code === 'vi') || dbAttraction.translations[0];
-    const catTrans = dbAttraction.category?.translations.find(t => t.language_code === locale) || dbAttraction.category?.translations.find(t => t.language_code === 'vi');
-    const typeTrans = dbAttraction.type?.translations.find(t => t.language_code === locale) || dbAttraction.type?.translations.find(t => t.language_code === 'vi');
-    const addrTrans = dbAttraction.address?.translations.find(t => t.language_code === locale) || dbAttraction.address?.translations.find(t => t.language_code === 'vi');
+    const translation = dbAttraction.translations.find((t: any) => t.language_code === locale) || dbAttraction.translations.find((t: any) => t.language_code === 'vi') || dbAttraction.translations[0];
+    const catTrans = dbAttraction.category?.translations.find((t: any) => t.language_code === locale) || dbAttraction.category?.translations.find((t: any) => t.language_code === 'vi');
+    const typeTrans = dbAttraction.type?.translations.find((t: any) => t.language_code === locale) || dbAttraction.type?.translations.find((t: any) => t.language_code === 'vi');
+    const addrTrans = dbAttraction.address?.translations.find((t: any) => t.language_code === locale) || dbAttraction.address?.translations.find((t: any) => t.language_code === 'vi');
 
     const slugs: Record<string, string> = {};
     dbAttraction.translations.forEach(t => {

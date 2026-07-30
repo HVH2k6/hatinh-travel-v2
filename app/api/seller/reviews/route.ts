@@ -72,7 +72,7 @@ export async function GET(request: Request) {
       let targetName = 'Cửa hàng';
       if (review.reviewable_type === 'Product' || review.reviewable_type === 'App\\Models\\Product') {
         const prod = products.find(p => p.id === review.reviewable_id);
-        const prodName = prod?.translations?.find(t => t.language_code === 'vi')?.name || 'Sản phẩm';
+        const prodName = prod?.translations?.find((t: any) => t.language_code === 'vi')?.name || 'Sản phẩm';
         targetName = `Sản phẩm: ${prodName}`;
       }
 

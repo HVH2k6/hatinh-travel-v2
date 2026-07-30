@@ -41,9 +41,9 @@ export async function GET(request: Request) {
           include: { translations: true }
         }).then(res => res.map(item => ({
           id: item.id,
-          name: item.translations.find(t => t.language_code === lang)?.name || '',
-          slug: item.translations.find(t => t.language_code === lang)?.slug || '',
-          description: item.translations.find(t => t.language_code === lang)?.description || '',
+          name: item.translations.find((t: any) => t.language_code === lang)?.name || '',
+          slug: item.translations.find((t: any) => t.language_code === lang)?.slug || '',
+          description: item.translations.find((t: any) => t.language_code === lang)?.description || '',
           image: item.image || '',
           category_id: item.category_id || '',
           views: item.view_count || 0,
@@ -62,9 +62,9 @@ export async function GET(request: Request) {
           include: { translations: true }
         }).then(res => res.map(item => ({
           id: item.id,
-          name: item.translations.find(t => t.language_code === lang)?.name || '',
-          slug: item.translations.find(t => t.language_code === lang)?.slug || '',
-          description: item.translations.find(t => t.language_code === lang)?.description || '',
+          name: item.translations.find((t: any) => t.language_code === lang)?.name || '',
+          slug: item.translations.find((t: any) => t.language_code === lang)?.slug || '',
+          description: item.translations.find((t: any) => t.language_code === lang)?.description || '',
           image: item.image || '',
           category_id: item.category_id || '',
           views: item.views || 0,
@@ -83,9 +83,9 @@ export async function GET(request: Request) {
           include: { translations: true }
         }).then(res => res.map(item => ({
           id: item.id,
-          name: item.translations.find(t => t.language_code === lang)?.name || '',
-          slug: item.translations.find(t => t.language_code === lang)?.slug || '',
-          description: item.translations.find(t => t.language_code === lang)?.description || '',
+          name: item.translations.find((t: any) => t.language_code === lang)?.name || '',
+          slug: item.translations.find((t: any) => t.language_code === lang)?.slug || '',
+          description: item.translations.find((t: any) => t.language_code === lang)?.description || '',
           image: item.image || '',
           category_id: item.category_id || '',
           views: item.views || 0,
