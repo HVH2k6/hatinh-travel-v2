@@ -17,9 +17,9 @@ async function fetchShops(locale: string): Promise<IGetShopsResponse | null> {
       }
     });
 
-    const shops = dbShops.map(s => {
-      const translation = s.translations.find(t => t.language_code === locale) || s.translations.find(t => t.language_code === 'vi') || s.translations[0];
-      const addrTrans = s.address?.translations.find(t => t.language_code === locale) || s.address?.translations.find(t => t.language_code === 'vi');
+    const shops = dbShops.map((s: any) => {
+      const translation = s.translations.find((t: any) => t.language_code === locale) || s.translations.find((t: any) => t.language_code === 'vi') || s.translations[0];
+      const addrTrans = s.address?.translations.find((t: any) => t.language_code === locale) || s.address?.translations.find((t: any) => t.language_code === 'vi');
       
       return {
         id: s.id,
