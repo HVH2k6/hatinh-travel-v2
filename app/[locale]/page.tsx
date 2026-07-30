@@ -4,9 +4,10 @@ import { timelineMilestones } from "@/data/timeline";
 import AttractionData from "@/models/attractions/AttractionData";
 import CulturalArtData from "@/models/cultural-arts/cultural-art-data";
 import LocalSpecialtyData from "@/models/local-specialty/local-specialty-data";
-import { Calendar, Compass, ShieldCheck, Users } from "lucide-react";
+import { Calendar, Compass, ShieldCheck, Users, ArrowRight } from "lucide-react";
+import { Link } from '@/i18n/navigation';
 import { getTranslations } from "next-intl/server";
-
+import AIChatBox from "@/components/AIChatBox";
 
 
 export default async function HomePage({
@@ -27,6 +28,11 @@ export default async function HomePage({
       {/* SECTION 1: HERO BANNER */}
       {/* -------------------------------------------------- */}
       <HeroSection />
+
+      {/* -------------------------------------------------- */}
+      {/* FLOATING AI CHATBOX */}
+      {/* -------------------------------------------------- */}
+      <AIChatBox />
 
       {/* -------------------------------------------------- */}
       {/* SECTION 2: LỜI CHÀO MỪNG & STATS */}
@@ -149,11 +155,17 @@ export default async function HomePage({
       {/* SECTION 5: DANH SÁCH ĐỊA ĐIỂM DU LỊCH */}
       {/* -------------------------------------------------- */}
       <section className="container mx-auto pt-28 px-4 lg:px-8 space-y-8">
-        <div className="space-y-1.5">
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
-            {title('attraction')}
-          </h2>
-          <div className="h-1 w-16 bg-orange-500 rounded-full" />
+        <div className="flex items-end justify-between">
+          <div className="space-y-1.5">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+              {title('attraction')}
+            </h2>
+            <div className="h-1 w-16 bg-orange-500 rounded-full" />
+          </div>
+          <Link href="#" className="text-sm font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1 group pb-1">
+            {cta('see_more')}
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
         <AttractionData locale={locale} />
       </section>
@@ -161,28 +173,40 @@ export default async function HomePage({
       {/* -------------------------------------------------- */}
       {/* SECTION 6: DANH SÁCH ĐẶC SẢN ĐỊA PHƯƠNG */}
       {/* -------------------------------------------------- */}
-      {/* <section className="container mx-auto pt-28 px-4 lg:px-8 space-y-8">
-        <div className="space-y-1.5">
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
-            {title('local_specialty')}
-          </h2>
-          <div className="h-1 w-16 bg-orange-500 rounded-full" />
+      <section className="container mx-auto pt-28 px-4 lg:px-8 space-y-8">
+        <div className="flex items-end justify-between">
+          <div className="space-y-1.5">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+              {title('local_specialty')}
+            </h2>
+            <div className="h-1 w-16 bg-orange-500 rounded-full" />
+          </div>
+          <Link href="/local-specialty" className="text-sm font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1 group pb-1">
+            {cta('see_more')}
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
         <LocalSpecialtyData locale={locale} />
-      </section> */}
+      </section>
 
       {/* -------------------------------------------------- */}
       {/* SECTION 7: DANH SÁCH VĂN HÓA NGHỆ THUẬT */}
       {/* -------------------------------------------------- */}
-      {/* <section className="container mx-auto pt-28 px-4 lg:px-8 space-y-8">
-        <div className="space-y-1.5">
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
-            {title('cultural_art')}
-          </h2>
-          <div className="h-1 w-16 bg-orange-500 rounded-full" />
+      <section className="container mx-auto pt-28 px-4 lg:px-8 space-y-8">
+        <div className="flex items-end justify-between">
+          <div className="space-y-1.5">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+              {title('cultural_art')}
+            </h2>
+            <div className="h-1 w-16 bg-orange-500 rounded-full" />
+          </div>
+          <Link href="/cultural-arts" className="text-sm font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1 group pb-1">
+            {cta('see_more')}
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
         <CulturalArtData locale={locale} />
-      </section> */}
+      </section>
     </div>
 
   );

@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { IProductDetail } from '@/interface/IProduct';
+import ReviewSection from '@/components/review/review-section';
 
 interface ProductDetailClientProps {
   product: IProductDetail;
@@ -210,6 +211,11 @@ export default function ProductDetailClient({
               </div>
             </div>
           )}
+        </div>
+
+        {/* Khối Đánh giá từ người dùng */}
+        <div className='bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-sm mt-6'>
+          <ReviewSection type='product' id={product.id} />
         </div>
       </div>
     </div>

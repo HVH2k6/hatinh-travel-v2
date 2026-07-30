@@ -17,11 +17,11 @@ export async function POST(request: Request) {
     }
 
     const typeMapping: Record<string, string> = {
-      product: 'App\\Models\\Product',
-      shop: 'App\\Models\\Shop',
-      location: 'App\\Models\\TouristAttraction',
-      'local-specialty': 'App\\Models\\LocalSpecialty',
-      'cultural-art': 'App\\Models\\CulturalArt',
+      product: 'Product',
+      shop: 'Shop',
+      location: 'TouristAttraction',
+      'local-specialty': 'LocalSpecialty',
+      'cultural-art': 'CulturalArt',
     };
 
     const reviewableType = typeMapping[type];
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
         reviewable_type: reviewableType,
         rating: Number(rating),
         review_content: review_content || null,
-        list_image: imagesArray.length > 0 ? imagesArray : null,
+        list_image: imagesArray.length > 0 ? imagesArray : undefined,
         pin: false,
         is_approved: true,
       },

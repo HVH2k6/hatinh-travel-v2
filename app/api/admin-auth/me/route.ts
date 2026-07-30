@@ -38,9 +38,9 @@ export async function GET() {
       include: { role: true },
     });
 
-    if (!dbUser || !dbUser.role || dbUser.role.name?.toLowerCase() !== "admin") {
+    if (!dbUser || !dbUser.role || (dbUser.role.name?.toLowerCase() !== "admin" && dbUser.role.name?.toLowerCase() !== "seller")) {
       return NextResponse.json(
-        { success: false, message: "Forbidden: Not an Admin" },
+        { success: false, message: "Forbidden: Not an Admin or Seller" },
         { status: 403 }
       );
     }

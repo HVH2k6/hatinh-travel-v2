@@ -52,7 +52,8 @@
     "cta": {
       "heading": "Lên Kế Hoạch Cho Hành Trình Của Sếp",
       "description": "Đừng bỏ lỡ cơ hội được trực tiếp trải nghiệm vẻ đẹp thanh bình, lắng nghe câu hò Ví Giặm và thưởng thức cu đơ nồng đượm ngay hôm nay tại Hà Tĩnh.",
-      "button": "Bắt đầu khám phá ngay"
+      "button": "Bắt đầu khám phá ngay",
+      "see_more": "Xem thêm"
     }
   },
   "specialty": {
@@ -212,7 +213,8 @@
       "pending": "Đang chờ duyệt",
       "approved": "Đã phê duyệt",
       "rejected": "Bị từ chối"
-    }
+    },
+    "btn_register": "Đăng ký"
   },
   "review_form": {
     "create_title": "Gửi đánh giá của sếp",

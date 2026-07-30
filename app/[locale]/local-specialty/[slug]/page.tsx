@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 
 
 
+import prisma from "@/lib/prisma";
+
 async function getData(slug: string, locale: string): Promise<LocalSpecialty | null> {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/local-specialties/${slug}?lang=${locale}`, {
@@ -13,9 +15,47 @@ async function getData(slug: string, locale: string): Promise<LocalSpecialty | n
     });
     if (!res.ok) return null;
     const json = await res.json();
-    return json.data;
+    
+    if (!json.success || !json.data) return null;
+
+    const dbSpecialty = json.data;
+
+    // 3. Map dữ liệu
+    const translation = dbSpecialty.translations?.find((t: any) => t.language_code === locale) || dbSpecialty.translations?.find((t: any) => t.language_code === 'vi') || dbSpecialty.translations?.[0];
+    const catTrans = dbSpecialty.category?.translations?.find((t: any) => t.language_code === locale) || dbSpecialty.category?.translations?.find((t: any) => t.language_code === 'vi');
+    const unitTrans = dbSpecialty.unit?.translations?.find((t: any) => t.language_code === locale) || dbSpecialty.unit?.translations?.find((t: any) => t.language_code === 'vi');
+    const addrTrans = dbSpecialty.address?.translations?.find((t: any) => t.language_code === locale) || dbSpecialty.address?.translations?.find((t: any) => t.language_code === 'vi');
+
+    const slugs: Record<string, string> = {};
+    if (dbSpecialty.translations) {
+      dbSpecialty.translations.forEach((t: any) => {
+        slugs[t.language_code] = t.slug;
+      });
+    }
+
+    return {
+      id: dbSpecialty.id,
+      image: dbSpecialty.image,
+      sub_image: dbSpecialty.list_image as string[] | null,
+      name: translation?.name || '',
+      slug: translation?.slug || '',
+      slugs: slugs,
+      description: translation?.description || '',
+      ingredients: translation?.ingredients || null,
+      category: catTrans ? { id: dbSpecialty.category_id!, name: catTrans.name } : null,
+      unit: unitTrans?.name || null,
+      price: dbSpecialty.price ? Number(dbSpecialty.price) : 0,
+      address: {
+        ward: dbSpecialty.address?.ward?.name || null,
+        district: dbSpecialty.address?.ward?.district_name || null,
+        address_detail: addrTrans?.detail || '',
+        map_url: dbSpecialty.address?.map_url || null,
+      },
+      is_featured: dbSpecialty.is_featured || false,
+      view_count: dbSpecialty.views || 0,
+    };
   } catch (error) {
-    console.error("Lỗi API:", error);
+    console.error("Lỗi API đặc sản:", error);
     return null;
   }
 }

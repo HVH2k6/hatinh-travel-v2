@@ -52,7 +52,8 @@
     "cta": {
       "heading": "Plan Your Ha Tinh Adventure",
       "description": "Don’t miss the opportunity to experience Ha Tinh’s tranquil beauty, enjoy the melodies of Vi and Giam folk songs, and savor the famous Cu Do peanut candy.",
-      "button": "Start Exploring Now"
+      "button": "Start Exploring Now",
+      "see_more": "See more"
     }
   },
   "card": {
@@ -187,7 +188,8 @@
       "pending": "Pending",
       "approved": "Approved",
       "rejected": "Rejected"
-    }
+    },
+    "btn_register": "Register"
   },
   "shop_detail": {
     "back_button": "Back",

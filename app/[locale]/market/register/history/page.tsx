@@ -13,5 +13,9 @@ export default async function HistoryRegisterPage({ params }: PageProps) {
   const result = await handleServerGetMyApplications(locale);
   const applications = result.success ? result.data : [];
 
-  return <HistoryRegisterSeller initialData={applications} />;
+  return (
+    <HistoryRegisterSeller initialData={applications} />
+    // <></>
+
+  );
 }

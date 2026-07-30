@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/providers/auth-provider';
 
 interface ReviewSectionProps {
-  type: 'product' | 'shop' | 'location';
+  type: 'product' | 'shop' | 'location' | 'local-specialty' | 'cultural-art';
   id: string;
 }
 
@@ -33,7 +33,7 @@ export default function ReviewSection({ type, id }: ReviewSectionProps) {
     async (page: number, ratingFilter: number | null) => {
       setLoading(true);
       try {
-        let url = `/api/reviews?type=${type}&id=${id}&page=${page}&limit=5`;
+        let url = `/api/reviews?type=${type}&id=${id}&page=${page}&limit=10`;
         if (ratingFilter !== null) {
           url += `&rating=${ratingFilter}`;
         }
@@ -87,8 +87,7 @@ export default function ReviewSection({ type, id }: ReviewSectionProps) {
       setEditingReview(null);
       setShowForm(false);
     } else {
-      router.refresh(); 
-      setReviews([...reviews]);
+      fetchReviewsList(1, activeRatingFilter);
       setShowForm(false);
     }
   };
@@ -184,6 +183,20 @@ export default function ReviewSection({ type, id }: ReviewSectionProps) {
           </div>
         ))}
       </div>
+
+      {/* Nút Xem thêm (Load More) */}
+      {currentPage < lastPage && (
+        <div className='flex justify-center pt-4'>
+          <Button
+            variant='outline'
+            onClick={() => fetchReviewsList(currentPage + 1, activeRatingFilter)}
+            disabled={loading}
+            className='rounded-xl border-slate-200 text-slate-700 font-bold px-8'
+          >
+            {loading ? 'Đang tải...' : 'Xem thêm đánh giá'}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

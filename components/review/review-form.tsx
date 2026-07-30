@@ -35,7 +35,7 @@ const reviewFormSchema = z.object({
 type ReviewFormValues = z.infer<typeof reviewFormSchema>;
 
 interface ReviewFormProps {
-  type: 'product' | 'shop' | 'location';
+  type: 'product' | 'shop' | 'location' | 'local-specialty' | 'cultural-art';
   id: string;
   editData?: any; // ✅ NHẬN THÊM DATA SỬA: Bắn dữ liệu bài cần sửa từ lớp cha vào đây
   onSuccess: (newOrUpdatedReview: any) => void;

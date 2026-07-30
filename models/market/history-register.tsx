@@ -5,9 +5,10 @@ import { useTranslations } from 'next-intl';
 import { Store, Calendar, Phone, Clock, CheckCircle2, XCircle, Bell, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
+import { Button } from '@base-ui/react';
 
 interface ApplicationItem {
-  id: number;
+  id: string; // Đổi thành string vì DB dùng UUID
   shop_name: string;
   phone_number: string;
   status: 'pending' | 'approved' | 'rejected';
@@ -19,7 +20,7 @@ interface HistoryRegisterSellerProps {
   initialData: ApplicationItem[];
 }
 
-export default function HistoryRegisterSeller({ initialData }: HistoryRegisterSellerProps) {
+export default function HistoryRegisterSeller({ initialData = [] }: HistoryRegisterSellerProps) {
   const t = useTranslations('seller_history');
 
   // Hàm render Badge màu sắc động dựa theo status
@@ -59,18 +60,21 @@ export default function HistoryRegisterSeller({ initialData }: HistoryRegisterSe
         </p>
       </div>
 
-      {/* Trường hợp chưa có đơn nào */}
       {initialData.length === 0 ? (
+        /* Trường hợp chưa có đơn nào */
         <div className="text-center py-16 bg-slate-50/50 border border-dashed border-slate-200 rounded-3xl space-y-3">
           <Store className="w-12 h-12 text-slate-300 mx-auto" />
           <p className="text-slate-400 font-bold text-sm">{t('empty')}</p>
+          <Link href={"/market/register"} className="mt-4 block font-bold rounded-xl bg-orange-500 text-white px-3 py-2 ">
+            {t('btn_register')}
+          </Link>
         </div>
       ) : (
         /* Danh sách đơn đăng ký */
         <div className="space-y-4">
           {initialData.map((app) => (
-            <div 
-              key={app.id} 
+            <div
+              key={app.id}
               className="bg-white border border-slate-100 p-5 md:p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center md:justify-between gap-4"
             >
               {/* Bên trái: Thông tin shop */}
@@ -93,11 +97,11 @@ export default function HistoryRegisterSeller({ initialData }: HistoryRegisterSe
                     <Calendar className="w-4 h-4 text-slate-400" />
                     <span>{new Date(app.created_at).toLocaleDateString('vi-VN')}</span>
                   </div>
-                  
+
                   {/* CHỈ HIỂN THỊ LÝ DO KHI BỊ REJECTED VÀ CÓ TEXT REJECTION */}
                   {app.status === 'rejected' && app.rejection_reason && (
                     <div className='flex items-center gap-1.5 text-red-600 bg-red-50/70 px-2 py-0.5 rounded-md border border-red-100/50'>
-                      <Bell className='w-3.5 h-3.5 shrink-0'/>
+                      <Bell className='w-3.5 h-3.5 shrink-0' />
                       <span className="text-xs font-bold">{t('th_rejection')}: {app.rejection_reason}</span>
                     </div>
                   )}
@@ -108,7 +112,7 @@ export default function HistoryRegisterSeller({ initialData }: HistoryRegisterSe
               <div className="flex items-center gap-3 shrink-0 md:self-center justify-between md:justify-end">
                 {renderStatusBadge(app.status)}
 
-                
+
                 {app.status === 'approved' && (
                   <Link
                     href={`${process.env.NEXT_PUBLIC_URL_SERVER}/seller/dashboard`}
@@ -119,7 +123,7 @@ export default function HistoryRegisterSeller({ initialData }: HistoryRegisterSe
                   </Link>
                 )}
               </div>
-              
+
             </div>
           ))}
         </div>

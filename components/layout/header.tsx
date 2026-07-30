@@ -38,15 +38,15 @@ export function SiteHeader() {
   const { user, isLoading, logout } = useAuth();
   // Gọi hook trỏ vào nhánh "header" trong file JSON dịch
   const t = useTranslations('header');
+  const tHome = useTranslations('home.title');
 
   // Định nghĩa các link điều hướng
   const navItems = [
     { label: t('home'), href: '/' },
     { label: t('market'), href: '/market' },
-    { label: t('audio'), href: '/audio' },
-    { label: t('ranking'), href: '/search' },
+    // { label: tHome('cultural_art'), href: '/cultural-arts' },
+    // { label: tHome('local_specialty'), href: '/local-specialty' },
     { label: t('blog'), href: '/blog' },
-    // { label: t('history'), href: '/blog' },
   ];
 
   return (
@@ -77,9 +77,8 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`relative py-7 text-[13px] font-bold tracking-wider transition-colors hover:text-slate-900 ${
-                      isActive ? 'text-slate-900' : 'text-slate-500'
-                    }`}
+                    className={`relative py-7 text-[13px] font-bold tracking-wider transition-colors hover:text-slate-900 ${isActive ? 'text-slate-900' : 'text-slate-500'
+                      }`}
                   >
                     {item.label}
                     {isActive && (
@@ -191,11 +190,10 @@ export function SiteHeader() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className={`text-sm font-bold tracking-wider py-3 px-2 rounded-md transition-colors ${
-                                isActive
-                                  ? 'text-orange-600 bg-orange-50'
-                                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                              }`}
+                              className={`text-sm font-bold tracking-wider py-3 px-2 rounded-md transition-colors ${isActive
+                                ? 'text-orange-600 bg-orange-50'
+                                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                                }`}
                             >
                               {item.label}
                             </Link>

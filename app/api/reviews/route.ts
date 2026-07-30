@@ -14,12 +14,12 @@ export async function GET(request: Request) {
       return NextResponse.json({ success: false, message: 'Thiếu tham số type hoặc id' }, { status: 400 });
     }
 
-    const typeMapping: Record<string, string> = {
-      product: 'App\\Models\\Product',
-      shop: 'App\\Models\\Shop',
-      location: 'App\\Models\\TouristAttraction',
-      'local-specialty': 'App\\Models\\LocalSpecialty',
-      'cultural-art': 'App\\Models\\CulturalArt',
+    const typeMapping: Record<string, string[]> = {
+      product: ['Product', 'App\\Models\\Product'],
+      shop: ['Shop', 'App\\Models\\Shop'],
+      location: ['TouristAttraction', 'App\\Models\\TouristAttraction'],
+      'local-specialty': ['LocalSpecialty', 'App\\Models\\LocalSpecialty'],
+      'cultural-art': ['CulturalArt', 'App\\Models\\CulturalArt'],
     };
 
     const reviewableType = typeMapping[type];
@@ -32,7 +32,7 @@ export async function GET(request: Request) {
     const skip = (page - 1) * limit;
 
     const whereClause: any = {
-      reviewable_type: reviewableType,
+      reviewable_type: { in: reviewableType },
       reviewable_id: id,
       is_approved: true,
     };

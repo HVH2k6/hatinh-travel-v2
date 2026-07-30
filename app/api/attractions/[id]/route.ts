@@ -118,7 +118,7 @@ export async function PUT(
         where: { id },
         data: {
           image: image !== undefined ? image : existingAttraction.image,
-          sub_image: sub_image !== undefined ? (Array.isArray(sub_image) ? sub_image : (sub_image ? [sub_image] : [])) : existingAttraction.sub_image,
+          sub_image: (sub_image !== undefined ? (Array.isArray(sub_image) ? sub_image : (sub_image ? [sub_image] : [])) : existingAttraction.sub_image) as any,
           category_id: category_id !== undefined ? category_id : existingAttraction.category_id,
           type_id: type_id !== undefined ? type_id : existingAttraction.type_id,
           address_id: addressId,

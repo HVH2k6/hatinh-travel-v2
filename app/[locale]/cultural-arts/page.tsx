@@ -1,5 +1,5 @@
 import React from 'react';
-import CulturalArtData from '@/models/cultural-arts/cultural-art-data';
+import CulturalArtsClientData from '@/models/cultural-arts/cultural-arts-client-data';
 import { getTranslations } from 'next-intl/server';
 
 export default async function CulturalArtsPage({
@@ -23,7 +23,7 @@ export default async function CulturalArtsPage({
           </p>
         </div>
         
-        <CulturalArtData locale={locale} />
+        <CulturalArtsClientData />
       </div>
     </div>
   );

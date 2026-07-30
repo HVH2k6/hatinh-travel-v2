@@ -41,7 +41,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
       data: {
         rating: Number(rating),
         review_content: review_content || null,
-        list_image: imagesArray.length > 0 ? imagesArray : null,
+        list_image: imagesArray.length > 0 ? imagesArray : undefined,
         is_approved: true,
       },
       include: { user: true }

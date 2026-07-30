@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       include: { role: true },
     });
 
-    if (!dbUser || !dbUser.role || dbUser.role.name?.toLowerCase() !== "admin") {
+    if (!dbUser || !dbUser.role || (dbUser.role.name?.toLowerCase() !== "admin" && dbUser.role.name?.toLowerCase() !== "seller")) {
       return NextResponse.json(
         { success: false, message: "Bạn không có quyền truy cập trang quản trị" },
         { status: 403 }

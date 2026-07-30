@@ -41,10 +41,15 @@ export function LanguageCombobox() {
       const translatedSlug = currentSlugs[newLocale];
       const cleanSlug = encodeURIComponent(translatedSlug);
 
-      // Điều hướng tới url chứa slug đã dịch
-      router.replace(`/tourist-attractions/${cleanSlug}`, {
-        locale: newLocale,
-      });
+      // Lấy path hiện tại và thay thế slug cũ bằng slug mới
+      const segments = pathname.split('/');
+      if (segments.length > 1) {
+        segments[segments.length - 1] = cleanSlug;
+        const newPath = segments.join('/');
+        router.replace(newPath, { locale: newLocale });
+      } else {
+        router.replace(`/${cleanSlug}`, { locale: newLocale });
+      }
     } else {
       // NẾU ĐANG Ở TRANG BÌNH THƯỜNG (Trang chủ, blog...)
       router.replace(pathname, { locale: newLocale });

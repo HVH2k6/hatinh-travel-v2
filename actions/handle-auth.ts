@@ -91,7 +91,7 @@ export async function handleServerApplySeller(data: any, currentLang: string) {
 
     // 1. Next.js Server ngầm gọi sang Laravel (Giấu kín endpoint)
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_URL}/auth/register-seller`, // Thay URL cho khớp route Laravel của bạn
+      `${process.env.NEXT_PUBLIC_URL}/seller-applications`, // Thay URL cho khớp route Laravel của bạn
       data,
       {
         headers: {
@@ -130,7 +130,7 @@ export async function handleServerGetMyApplications(currentLang: string) {
     }
 
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_URL}/auth/my-seller-applications`,
+      `${process.env.NEXT_PUBLIC_URL}/seller-applications`,
       {
         headers: {
           'Accept-Language': currentLang,
