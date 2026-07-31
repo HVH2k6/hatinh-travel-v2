@@ -31,22 +31,98 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-async function fetchShopDetail(slug: string, locale: string): Promise<IGetShopDetailResponse | null> {
-  console.log("slug", slug)
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/shops/${slug}`, {
-    headers: { 'Accept-Language': locale },
-    next: { revalidate: 60 }
+import prisma from '@/lib/prisma';
+
+async function fetchShopDetail(slug: string, locale: string): Promise<any | null> {
+  const shop = await prisma.shop.findFirst({
+    where: {
+      translations: { some: { slug: slug } },
+      status: 'active'
+    },
+    include: {
+      translations: true,
+      address: {
+        include: { translations: true, ward: true }
+      }
+    }
   });
-  return res.ok ? res.json() : null;
+
+  if (!shop) return null;
+
+  prisma.shop.update({
+    where: { id: shop.id },
+    data: { views: { increment: 1 } }
+  }).catch(console.error);
+
+  const trans = shop.translations.find((t: any) => t.language_code === locale) || shop.translations[0];
+  const addrTrans = shop.address?.translations.find((t: any) => t.language_code === locale) || shop.address?.translations[0];
+
+  return {
+    success: true,
+    data: {
+      id: shop.id,
+      slug: trans?.slug || '',
+      name: trans?.name || 'N/A',
+      description: trans?.description || '',
+      phone_number: shop.phone_number || '',
+      contact_email: shop.contact_email || '',
+      logo_url: shop.logo_url,
+      cover_image_url: shop.cover_image_url,
+      rating: shop.rating ? Number(shop.rating) : 0,
+      total_reviews: shop.total_reviews || 0,
+      views: shop.views || 0,
+      location: {
+        address_detail: addrTrans?.detail || '',
+        ward_name: shop.address?.ward?.name || '',
+        map_url: shop.address?.map_url || null,
+      },
+      created_at: shop.created_at,
+    }
+  };
 }
 
-
-async function fetchShopProducts(shopId: string, locale: string): Promise<IGetShopProductsResponse | null> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/shops/${shopId}/products?limit=8`, {
-    headers: { 'Accept-Language': locale },
-    next: { revalidate: 30 }
+async function fetchShopProducts(shopId: string, locale: string): Promise<any | null> {
+  const limit = 8;
+  const products = await prisma.product.findMany({
+    where: { shop_id: shopId, status: 'active' },
+    orderBy: { created_at: 'desc' },
+    take: limit,
+    include: {
+      translations: true,
+      unit: { include: { translations: true } }
+    }
   });
-  return res.ok ? res.json() : null;
+  
+  const total = await prisma.product.count({
+    where: { shop_id: shopId, status: 'active' }
+  });
+
+  const formattedData = products.map((item: any) => {
+    const trans = item.translations?.find((t: any) => t.language_code === locale) || item.translations?.[0];
+    const unitTrans = item.unit?.translations?.find((t: any) => t.language_code === locale) || item.unit?.translations?.[0];
+
+    return {
+      id: item.id,
+      slug: trans?.slug || '',
+      name: trans?.name || 'N/A',
+      description: trans?.description || '',
+      price: Number(item.price),
+      image: item.image,
+      list_image: typeof item.list_image === 'string' ? JSON.parse(item.list_image) : (item.list_image || []),
+      is_featured: item.is_featured,
+      unit: unitTrans?.name || '',
+    };
+  });
+
+  return {
+    success: true,
+    data: {
+      data: formattedData,
+      total,
+      current_page: 1,
+      last_page: Math.ceil(total / limit)
+    }
+  };
 }
 
 export default async function ShopDetailPage({ params }: { params: Promise<{ slug: string }> }) {

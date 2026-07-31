@@ -24,6 +24,8 @@ import api from "@/lib/axios";
 
 import prisma from "@/lib/prisma";
 
+import { createClient } from "@supabase/supabase-js";
+
 async function getMeFromServer() {
   const cookieStore = await cookies();
   const accessToken = cookieStore.get("access_token")?.value;
@@ -31,22 +33,28 @@ async function getMeFromServer() {
   if (!accessToken) return null;
 
   try {
-    // Dùng fetch thuần túy trên Server để tránh kích hoạt Axios Interceptor (dành riêng cho Client)
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/auth/me`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json"
-      },
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        global: { headers: { Authorization: `Bearer ${accessToken}` } },
+        auth: { persistSession: false },
+      }
+    );
+
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+    if (userError || !user) return null;
+
+    const dbUser = await prisma.user.findUnique({
+      where: { id: user.id },
+      include: { role: true },
     });
 
-    if (!response.ok) {
-      // Nếu 401 (hết hạn), trả về null. Client AuthProvider sẽ tự động gọi lại và kích hoạt Refresh Token!
-      return null;
-    }
+    if (!dbUser) return null;
 
-    const data = await response.json();
-    return data.user;
+    const { password: _, ...userWithoutPassword } = dbUser;
+    return userWithoutPassword;
   } catch (error) {
     return null;
   }
@@ -69,7 +77,7 @@ export default async function RootLayout({
       <body>
         {/* Bọc Provider ở đây để giữ trạng thái API mãi mãi */}
         <LanguageProvider initialLanguages={languages}>
-          <AuthProvider initialUser={user}>{children}</AuthProvider>
+          <AuthProvider initialUser={user as any}>{children}</AuthProvider>
         </LanguageProvider>
         {/* {children} */}
       </body>

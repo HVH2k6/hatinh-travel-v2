@@ -7,15 +7,29 @@ import prisma from "@/lib/prisma";
 // Hàm Server gọi Database trực tiếp (chuẩn App Router)
 async function getCulturalArtDetail(slug: string, locale: string): Promise<CulturalArt | null> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/cultural-arts/${slug}?lang=${locale}`, {
-      next: { revalidate: 3600 },
+    const translationWithSlug = await prisma.cultural_Art_Translation.findFirst({
+      where: { slug: slug }
     });
-    if (!res.ok) return null;
-    const json = await res.json();
-    
-    if (!json.success || !json.data) return null;
 
-    const dbArt = json.data;
+    if (!translationWithSlug) return null;
+
+    const dbArt = await prisma.cultural_Art.findUnique({
+      where: { id: translationWithSlug.cultural_art_id },
+      include: {
+        translations: true,
+        address: {
+          include: { 
+            ward: true,
+            translations: true 
+          }
+        },
+        category: {
+          include: { translations: true }
+        }
+      }
+    });
+
+    if (!dbArt) return null;
 
     // 3. Map dữ liệu
     const translation = dbArt.translations?.find((t: any) => t.language_code === locale) || dbArt.translations?.find((t: any) => t.language_code === 'vi') || dbArt.translations?.[0];
