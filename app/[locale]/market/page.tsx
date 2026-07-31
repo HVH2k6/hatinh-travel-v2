@@ -20,7 +20,7 @@ async function fetchShops(locale: string): Promise<IGetShopsResponse | null> {
     const shops = dbShops.map((s: any) => {
       const translation = s.translations.find((t: any) => t.language_code === locale) || s.translations.find((t: any) => t.language_code === 'vi') || s.translations[0];
       const addrTrans = s.address?.translations.find((t: any) => t.language_code === locale) || s.address?.translations.find((t: any) => t.language_code === 'vi');
-      
+
       return {
         id: s.id,
         slug: translation?.slug || '',
@@ -84,12 +84,6 @@ export default async function MarketPage() {
             </h1>
           </div>
 
-          <Link
-            href='/seller/apply'
-            className='text-sm font-bold text-orange-600 hover:text-orange-700 hover:underline'
-          >
-            Đăng ký bán hàng
-          </Link>
         </div>
 
         {/* 2. Render ShopList và truyền response vào làm Props */}

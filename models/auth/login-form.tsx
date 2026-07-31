@@ -22,6 +22,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { useAuth } from '@/providers/auth-provider';
 import { handleServerLogin } from '@/actions/handle-auth';
+import Link from 'next/link';
 
 
 const baseLoginSchema = z.object({
@@ -127,7 +128,12 @@ export default function LoginForm() {
               {t('description')}
             </p>
           </div>
+          <div className="space-y-2">
 
+            <p className="text-sm font-medium text-slate-500">
+              Chưa có tài khoản? <Link href="/auth/register" className="text-orange-600 hover:underline font-bold">Đăng ký</Link>
+            </p>
+          </div>
           {/* Khu vực Form điền thông tin */}
           <form
             id='login-form'

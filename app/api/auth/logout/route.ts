@@ -12,7 +12,13 @@ export async function POST() {
       console.error("Lỗi khi sign out Supabase:", error);
     }
 
-    return NextResponse.json({ success: true, message: "Đăng xuất thành công!" });
+    const response = NextResponse.json({ success: true, message: "Đăng xuất thành công!" });
+    
+    // Xóa cookies
+    response.cookies.set('access_token', '', { maxAge: 0 });
+    response.cookies.set('refresh_token', '', { maxAge: 0 });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       { success: false, message: "Có lỗi xảy ra khi đăng xuất." },
