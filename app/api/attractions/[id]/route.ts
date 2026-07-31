@@ -88,7 +88,7 @@ export async function PUT(
       );
     }
 
-    const updatedAttraction = await prisma.$transaction(async (tx) => {
+    const updatedAttraction = await prisma.$transaction(async (tx: any) => {
       // 1. Xử lý Address
       let addressId = existingAttraction.address_id;
       
@@ -230,7 +230,7 @@ export async function DELETE(
       );
     }
 
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: any) => {
       // 1. Xóa bản dịch của attraction
       await tx.tourist_Attraction_Translation.deleteMany({
         where: { attraction_id: id },

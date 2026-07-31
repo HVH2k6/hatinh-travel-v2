@@ -100,7 +100,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const newAttraction = await prisma.$transaction(async (tx) => {
+    const newAttraction = await prisma.$transaction(async (tx: any) => {
       // 1. Tạo Address
       const address = await tx.address.create({
         data: {

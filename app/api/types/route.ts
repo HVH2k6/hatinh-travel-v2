@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     }
 
     // Dùng transaction để đảm bảo toàn vẹn dữ liệu
-    const newType = await prisma.$transaction(async (tx) => {
+    const newType = await prisma.$transaction(async (tx: any) => {
       // 1. Tạo type
       const type = await tx.attraction_Type.create({
         data: {

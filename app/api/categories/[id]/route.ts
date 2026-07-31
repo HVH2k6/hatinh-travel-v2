@@ -67,7 +67,7 @@ export async function PUT(
       );
     }
 
-    const updatedCategory = await prisma.$transaction(async (tx) => {
+    const updatedCategory = await prisma.$transaction(async (tx: any) => {
       // 1. Cập nhật bảng chính
       await tx.category.update({
         where: { id },
@@ -141,7 +141,7 @@ export async function DELETE(
       );
     }
 
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: any) => {
       await tx.category_Translation.deleteMany({
         where: { category_id: id },
       });

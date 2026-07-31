@@ -86,7 +86,7 @@ export async function PUT(
       return NextResponse.json({ success: false, message: "Không tìm thấy dữ liệu" }, { status: 404 });
     }
 
-    const updatedCulturalArt = await prisma.$transaction(async (tx) => {
+    const updatedCulturalArt = await prisma.$transaction(async (tx: any) => {
       let addressId = existingCulturalArt.address_id;
 
       if (ward_code) {
@@ -190,7 +190,7 @@ export async function DELETE(
       return NextResponse.json({ success: false, message: "Không tìm thấy dữ liệu" }, { status: 404 });
     }
 
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: any) => {
       await tx.cultural_Art_Translation.deleteMany({ where: { cultural_art_id: id } });
       await tx.cultural_Art.delete({ where: { id } });
       if (existing.address_id) {

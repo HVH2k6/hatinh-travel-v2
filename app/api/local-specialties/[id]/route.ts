@@ -86,7 +86,7 @@ export async function PUT(
       return NextResponse.json({ success: false, message: "Không tìm thấy dữ liệu" }, { status: 404 });
     }
 
-    const updatedLocalSpecialty = await prisma.$transaction(async (tx) => {
+    const updatedLocalSpecialty = await prisma.$transaction(async (tx: any) => {
       let addressId = existingLocalSpecialty.address_id;
 
       if (ward_code) {
@@ -191,7 +191,7 @@ export async function DELETE(
       return NextResponse.json({ success: false, message: "Không tìm thấy dữ liệu" }, { status: 404 });
     }
 
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: any) => {
       await tx.local_Specialty_Translation.deleteMany({ where: { local_specialty_id: id } });
       await tx.local_Specialty.delete({ where: { id } });
       if (existing.address_id) {

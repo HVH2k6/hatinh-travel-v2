@@ -90,7 +90,7 @@ export async function POST(request: Request) {
 
     let addressId: string | undefined = undefined;
 
-    const newLocalSpecialty = await prisma.$transaction(async (tx) => {
+    const newLocalSpecialty = await prisma.$transaction(async (tx: any) => {
       // 1. Tạo Address nếu có chọn ward_code
       if (ward_code) {
         const address = await tx.address.create({

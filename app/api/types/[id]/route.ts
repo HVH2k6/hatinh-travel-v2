@@ -67,7 +67,7 @@ export async function PUT(
       );
     }
 
-    const updatedType = await prisma.$transaction(async (tx) => {
+    const updatedType = await prisma.$transaction(async (tx: any) => {
       // 1. Cập nhật bảng chính
       await tx.attraction_Type.update({
         where: { id },
@@ -142,7 +142,7 @@ export async function DELETE(
     }
 
     // Xóa trong transaction để đảm bảo toàn vẹn
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: any) => {
       // Xóa bản dịch trước (Khóa ngoại)
       await tx.attraction_Type_Translation.deleteMany({
         where: { type_id: id },

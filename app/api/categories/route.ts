@@ -65,7 +65,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const newCategory = await prisma.$transaction(async (tx) => {
+    const newCategory = await prisma.$transaction(async (tx: any) => {
       // 1. Tạo bản ghi Category
       const category = await tx.category.create({
         data: {

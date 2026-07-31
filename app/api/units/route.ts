@@ -85,7 +85,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const newUnit = await prisma.$transaction(async (tx) => {
+    const newUnit = await prisma.$transaction(async (tx: any) => {
       // 1. Tạo bản ghi Unit
       const unit = await tx.unit.create({
         data: {
