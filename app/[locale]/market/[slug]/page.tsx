@@ -57,6 +57,16 @@ async function fetchShopDetail(slug: string, locale: string): Promise<any | null
   const trans = shop.translations.find((t: any) => t.language_code === locale) || shop.translations[0];
   const addrTrans = shop.address?.translations.find((t: any) => t.language_code === locale) || shop.address?.translations[0];
 
+  const reviewStats = await prisma.review.aggregate({
+    where: {
+      reviewable_type: { in: ['Shop', 'App\\Models\\Shop'] },
+      reviewable_id: shop.id,
+      is_approved: true
+    },
+    _avg: { rating: true },
+    _count: { rating: true }
+  });
+
   return {
     success: true,
     data: {
@@ -68,8 +78,8 @@ async function fetchShopDetail(slug: string, locale: string): Promise<any | null
       contact_email: shop.contact_email || '',
       logo_url: shop.logo_url,
       cover_image_url: shop.cover_image_url,
-      rating: shop.rating ? Number(shop.rating) : 0,
-      total_reviews: shop.total_reviews || 0,
+      rating: reviewStats._avg.rating || 0,
+      total_reviews: reviewStats._count.rating || 0,
       views: shop.views || 0,
       location: {
         address_detail: addrTrans?.detail || '',

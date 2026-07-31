@@ -17,6 +17,24 @@ async function fetchShops(locale: string): Promise<IGetShopsResponse | null> {
       }
     });
 
+    const shopIds = dbShops.map((s: any) => s.id);
+    const reviews = await prisma.review.groupBy({
+      by: ['reviewable_id'],
+      where: {
+        reviewable_type: { in: ['Shop', 'App\\Models\\Shop'] },
+        reviewable_id: { in: shopIds },
+        is_approved: true
+      },
+      _avg: {
+        rating: true
+      },
+      _count: {
+        rating: true
+      }
+    });
+
+    const reviewMap = new Map(reviews.map((r: any) => [r.reviewable_id, r]));
+
     const shops = dbShops.map((s: any) => {
       const translation = s.translations.find((t: any) => t.language_code === locale) || s.translations.find((t: any) => t.language_code === 'vi') || s.translations[0];
       const addrTrans = s.address?.translations.find((t: any) => t.language_code === locale) || s.address?.translations.find((t: any) => t.language_code === 'vi');
@@ -29,8 +47,8 @@ async function fetchShops(locale: string): Promise<IGetShopsResponse | null> {
         phone_number: s.phone_number || '',
         contact_email: s.contact_email || '',
         logo_url: s.logo_url || null,
-        rating: s.rating ? Number(s.rating) : 0,
-        total_reviews: s.total_reviews || 0,
+        rating: reviewMap.get(s.id)?._avg?.rating || 0,
+        total_reviews: reviewMap.get(s.id)?._count?.rating || 0,
         views: s.views || 0,
         location: {
           address_detail: addrTrans?.detail || '',
