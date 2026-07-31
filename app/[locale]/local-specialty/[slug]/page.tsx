@@ -32,15 +32,32 @@ import prisma from "@/lib/prisma";
 
 async function getData(slug: string, locale: string): Promise<LocalSpecialty | null> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/local-specialties/${slug}?lang=${locale}`, {
-      next: { revalidate: 3600 },
+    const translationWithSlug = await prisma.local_Specialty_Translation.findFirst({
+      where: { slug: slug }
     });
-    if (!res.ok) return null;
-    const json = await res.json();
-    
-    if (!json.success || !json.data) return null;
 
-    const dbSpecialty = json.data;
+    if (!translationWithSlug) return null;
+
+    const dbSpecialty = await prisma.local_Specialty.findUnique({
+      where: { id: translationWithSlug.local_specialty_id, status: 'active' },
+      include: {
+        translations: true,
+        address: {
+          include: { 
+            ward: true,
+            translations: true 
+          }
+        },
+        category: {
+          include: { translations: true }
+        },
+        unit: {
+          include: { translations: true }
+        }
+      }
+    });
+
+    if (!dbSpecialty) return null;
 
     // 3. Map dữ liệu
     const translation = dbSpecialty.translations?.find((t: any) => t.language_code === locale) || dbSpecialty.translations?.find((t: any) => t.language_code === 'vi') || dbSpecialty.translations?.[0];
