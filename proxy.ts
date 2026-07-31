@@ -7,8 +7,8 @@ export const config = {
   // Matcher chuẩn của next-intl để bỏ qua các file tĩnh
   matcher: [
     '/',
-    '/(en|ja|ko|ru|vi|zh)/:path*',
-    
+    '/(en|ja|ko|ru|vi|zh|th|fr|de)/:path*',
+
     '/((?!api|_next|_vercel|.*\\..*).*)'
   ],
 };
