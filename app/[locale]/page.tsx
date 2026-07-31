@@ -12,7 +12,7 @@ import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  
+
   if (locale === 'en') {
     return {
       title: 'Ha Tinh Travel - Explore the Beauty of Ha Tinh',
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       }
     };
   }
-  
+
   return {
     title: 'Hà Tĩnh Travel - Khám phá vẻ đẹp Hà Tĩnh',
     description: 'Khám phá các điểm đến du lịch, đặc sản địa phương và văn hóa nghệ thuật tại Hà Tĩnh. Cẩm nang du lịch dành cho bạn.',
@@ -49,9 +49,7 @@ export default async function HomePage({
 
   return (
     <div className="bg-slate-50/30 overflow-hidden">
-      {/* -------------------------------------------------- */}
-      {/* SECTION 1: HERO BANNER */}
-      {/* -------------------------------------------------- */}
+
       <HeroSection />
 
       {/* -------------------------------------------------- */}
