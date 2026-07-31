@@ -6,8 +6,30 @@ import { notFound } from 'next/navigation';
 import { IGetShopDetailResponse } from '@/interface/IShop';
 import { IGetShopProductsResponse } from '@/interface/IProduct';
 import ShopDetailClient from '@/models/market/shop-detail';
+import { Metadata } from 'next';
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const locale = await getLocale();
+  const shopRes = await fetchShopDetail(slug, locale);
+  
+  if (!shopRes || !shopRes.success || !shopRes.data) {
+    return {
+      title: 'Shop Not Found',
+    };
+  }
 
+  const shop = shopRes.data;
+  return {
+    title: `${shop.name} | Hà Tĩnh Travel`,
+    description: shop.description || (locale === 'en' ? 'Discover shops in Ha Tinh' : 'Khám phá cửa hàng tại Hà Tĩnh'),
+    openGraph: {
+      title: shop.name,
+      description: shop.description || (locale === 'en' ? 'Discover shops in Ha Tinh' : 'Khám phá cửa hàng tại Hà Tĩnh'),
+      images: shop.logo_url ? [{ url: shop.logo_url }] : [],
+    }
+  };
+}
 
 async function fetchShopDetail(slug: string, locale: string): Promise<IGetShopDetailResponse | null> {
   console.log("slug", slug)

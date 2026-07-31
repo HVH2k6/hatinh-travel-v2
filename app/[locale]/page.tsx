@@ -8,6 +8,31 @@ import { Calendar, Compass, ShieldCheck, Users, ArrowRight } from "lucide-react"
 import { Link } from '@/i18n/navigation';
 import { getTranslations } from "next-intl/server";
 import AIChatBox from "@/components/AIChatBox";
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  
+  if (locale === 'en') {
+    return {
+      title: 'Ha Tinh Travel - Explore the Beauty of Ha Tinh',
+      description: 'Discover tourist attractions, local specialties, and cultural arts in Ha Tinh. Your ultimate travel guide.',
+      openGraph: {
+        title: 'Ha Tinh Travel - Explore the Beauty of Ha Tinh',
+        description: 'Discover tourist attractions, local specialties, and cultural arts in Ha Tinh. Your ultimate travel guide.',
+      }
+    };
+  }
+  
+  return {
+    title: 'Hà Tĩnh Travel - Khám phá vẻ đẹp Hà Tĩnh',
+    description: 'Khám phá các điểm đến du lịch, đặc sản địa phương và văn hóa nghệ thuật tại Hà Tĩnh. Cẩm nang du lịch dành cho bạn.',
+    openGraph: {
+      title: 'Hà Tĩnh Travel - Khám phá vẻ đẹp Hà Tĩnh',
+      description: 'Khám phá các điểm đến du lịch, đặc sản địa phương và văn hóa nghệ thuật tại Hà Tĩnh. Cẩm nang du lịch dành cho bạn.',
+    }
+  };
+}
 
 
 export default async function HomePage({

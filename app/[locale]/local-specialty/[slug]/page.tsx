@@ -3,6 +3,28 @@ import { LocalSpecialty } from "@/interface/ILocalSpecialty";
 import { AttractionDetailView } from "@/models/attractions/attraction-detail-view";
 import { LocalSpecialtyDetailView } from "@/models/local-specialty/local-specialty-detail";
 import { notFound } from "next/navigation";
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const specialty = await getData(slug, locale);
+  
+  if (!specialty) {
+    return {
+      title: 'Local Specialty Not Found',
+    };
+  }
+
+  return {
+    title: `${specialty.name} | Hà Tĩnh Travel`,
+    description: specialty.description || (locale === 'en' ? 'Discover local specialties in Ha Tinh' : 'Khám phá đặc sản địa phương tại Hà Tĩnh'),
+    openGraph: {
+      title: specialty.name,
+      description: specialty.description || (locale === 'en' ? 'Discover local specialties in Ha Tinh' : 'Khám phá đặc sản địa phương tại Hà Tĩnh'),
+      images: specialty.image ? [{ url: specialty.image }] : [],
+    }
+  };
+}
 
 
 

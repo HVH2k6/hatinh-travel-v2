@@ -2,6 +2,28 @@ import prisma from "@/lib/prisma";
 import { TouristAttraction } from "@/interface/IAttraction";
 import { AttractionDetailView } from "@/models/attractions/attraction-detail-view";
 import { notFound } from "next/navigation";
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const attraction = await getAttractionDetail(slug, locale);
+  
+  if (!attraction) {
+    return {
+      title: 'Attraction Not Found',
+    };
+  }
+
+  return {
+    title: `${attraction.name} | Hà Tĩnh Travel`,
+    description: attraction.description || (locale === 'en' ? 'Discover beautiful tourist attractions in Ha Tinh' : 'Khám phá địa điểm du lịch tuyệt đẹp tại Hà Tĩnh'),
+    openGraph: {
+      title: attraction.name,
+      description: attraction.description || (locale === 'en' ? 'Discover beautiful tourist attractions in Ha Tinh' : 'Khám phá địa điểm du lịch tuyệt đẹp tại Hà Tĩnh'),
+      images: attraction.image ? [{ url: attraction.image }] : [],
+    }
+  };
+}
 
 async function getAttractionDetail(slug: string, locale: string): Promise<TouristAttraction | null> {
   try {
