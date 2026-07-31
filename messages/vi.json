@@ -1,0 +1,245 @@
+{
+  "header": {
+    "home": "Trang chủ",
+    "market": "Chợ",
+    "audio": "Audio lịch sử",
+    "ranking": "Top điểm du lịch hot",
+    "blog": "Blog",
+    "login": "Đăng nhập",
+    "setting": "Cài đặt",
+    "logout": "Đăng xuất",
+    "history": "Xem lịch sử đăng ký"
+  },
+  "home": {
+    "title": {
+      "attraction": "Danh lam thắng cảnh",
+      "local_specialty": "Sản phẩm đặc sản Hà Tĩnh",
+      "cultural_art": "Văn hóa nghệ thuật Hà Tĩnh"
+    },
+    "hero": {
+      "title": "Hà Tĩnh: Khám Phá Vẻ Đẹp Ẩn Giấu",
+      "description": "Từ những bãi biển hoang sơ, hùng vĩ đến những di tích lịch sử trang nghiêm, Hà Tĩnh mời gọi bạn trải nghiệm một hành trình độc đáo và trọn vẹn.",
+      "ctaSeePlaces": "Khám Phá Địa Điểm",
+      "ctaPlanTrip": "Lên Kế Hoạch Chuyến Đi"
+    },
+    "welcome": {
+      "tagline": "Chào mừng sếp đến với Hà Tĩnh",
+      "heading": "Khám Phá Vùng Đất Địa Linh Nhân Kiệt",
+      "description": "Hà Tĩnh không chỉ níu chân du khách bằng dòng sông Lam thơ mộng, dãy Hoành Sơn hùng vĩ mà còn bởi nét đẹp văn hóa lâu đời, lòng hiếu khách và những món ăn đặc sản đậm tình xứ Nghệ.",
+      "stat_destinations": "Điểm tham quan",
+      "stat_safe": "An toàn & Thân thiện",
+      "stat_visitors": "Lượt khách ghé thăm",
+      "stat_days": "Ngày trải nghiệm"
+    },
+    "about": {
+      "section_tag": "Giới thiệu vùng đất",
+      "heading": "Nơi Giao Thoa Giữa Biển Bạc Và Núi Hùng",
+      "paragraph_1": "Nằm ở dải đất miền Trung đầy nắng và gió, Hà Tĩnh sở hữu đường bờ biển dài tuyệt đẹp với các bãi tắm nổi tiếng như Thiên Cầm, Xuân Thành, cùng các di tích lịch sử mang tầm vóc quốc gia như Ngã ba Đồng Lộc, Khu lưu niệm Đại thi hào Nguyễn Du.",
+      "paragraph_2": "Đến với Hà Tĩnh là đến với tiếng đàn tâm tình của làn điệu Dân ca Ví, Giặm Nghệ Tĩnh đã được UNESCO công nhận, đến với không gian yên bình để thư giãn tâm hồn và tìm lại những giá trị lịch sử hào hùng."
+    },
+    "timeline": {
+      "heading": "Dòng Thời Gian Phát Triển",
+      "subtitle": "Hành trình vươn mình của ngành du lịch tỉnh nhà",
+      "phase_1_title": "Khởi nguyên & Định hình",
+      "phase_1_desc": "Tập trung bảo tồn các khu di tích lịch sử trọng điểm và phát hiện các bãi biển hoang sơ.",
+      "phase_2_title": "Đột phá hạ tầng",
+      "phase_2_desc": "Đầu tư nâng cấp các tuyến đường huyết mạch, mở rộng các khu nghỉ dưỡng Thiên Cầm, Xuân Thành.",
+      "phase_3_title": "Chuyển đổi số & Di sản",
+      "phase_3_desc": "Đẩy mạnh quảng bá văn hóa Ví Giặm ra thế giới, tích hợp số hóa bản đồ du lịch thông minh.",
+      "phase_4_title": "Du lịch xanh bền vững",
+      "phase_4_desc": "Phát triển du lịch sinh thái, du lịch cộng đồng gắn liền với việc gìn giữ thiên nhiên xanh."
+    },
+    "cta": {
+      "heading": "Lên Kế Hoạch Cho Hành Trình Của Sếp",
+      "description": "Đừng bỏ lỡ cơ hội được trực tiếp trải nghiệm vẻ đẹp thanh bình, lắng nghe câu hò Ví Giặm và thưởng thức cu đơ nồng đượm ngay hôm nay tại Hà Tĩnh.",
+      "button": "Bắt đầu khám phá ngay",
+      "see_more": "Xem thêm"
+    }
+  },
+  "specialty": {
+    "detail": {
+      "home": "Trang chủ",
+      "views": "lượt xem",
+      "photo_gallery": "Hình ảnh sản phẩm thực tế",
+      "image_viewer": "Trình xem ảnh đặc sản",
+      "product_info": "Thông tin sản phẩm đặc sản",
+      "price_label": "Giá tham khảo",
+      "contact_price": "Liên hệ để biết giá",
+      "unit_label": "Đơn vị tính",
+      "ingredients_label": "Thành phần cốt lõi",
+      "origin_location": "Nơi sản xuất / Xuất xứ",
+      "view_origin_map": "Xem bản đồ vùng sản xuất"
+    }
+  },
+  "card": {
+    "attraction": {
+      "explore": "Khám phá"
+    },
+    "local_specialty": {
+      "explore": "Khám phá"
+    }
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "description": "Nhập email và mật khẩu của bạn để tiếp tục",
+    "email_label": "Email",
+    "password_label": "Mật khẩu",
+    "forgot_password": "Quên mật khẩu?",
+    "button_loading": "Đang xử lý...",
+    "button_submit": "Đăng nhập",
+    "error_fallback": "Đăng nhập thất bại.",
+    "error_connection": "Lỗi kết nối đến server.",
+    "validation": {
+      "email_invalid": "Email không hợp lệ.",
+      "password_min": "Mật khẩu phải có ít nhất 6 ký tự."
+    }
+  },
+  "register": {
+    "title": "Đăng ký",
+    "description": "Tạo tài khoản mới để bắt đầu.",
+    "already_have_account": "Đã có tài khoản?",
+    "login_link": "Đăng nhập",
+    "username_label": "Tên hiển thị (Tùy chọn)",
+    "email_label": "Email *",
+    "password_label": "Mật khẩu *",
+    "confirm_password_label": "Xác nhận mật khẩu *",
+    "button_loading": "Đang xử lý...",
+    "button_submit": "Đăng ký tài khoản",
+    "error_fallback": "Đăng ký thất bại.",
+    "error_connection": "Lỗi kết nối đến server.",
+    "success_title": "Kiểm tra hộp thư",
+    "success_message_1": "Chúng tôi đã gửi một liên kết xác thực đến",
+    "success_message_2": "Vui lòng kiểm tra email để kích hoạt tài khoản.",
+    "back_to_login": "Trở về đăng nhập",
+    "validation": {
+      "email_invalid": "Email không hợp lệ.",
+      "password_min": "Mật khẩu phải có ít nhất 6 ký tự.",
+      "password_mismatch": "Mật khẩu xác nhận không khớp."
+    }
+  },
+  "attraction": {
+    "explore": "Khám phá",
+    "detail": {
+      "home": "Trang chủ",
+      "photo_gallery": "Thư viện hình ảnh",
+      "trip_info": "Thông tin chuyến đi",
+      "location": "Địa điểm",
+      "opening_hours": "Giờ hoạt động",
+      "not_updated": "Chưa cập nhật",
+      "estimated_price": "Giá vé dự kiến",
+      "free": "Miễn phí",
+      "hotline": "Hotline",
+      "website": "Website",
+      "view_map": "Xem đường đi trên Google Maps",
+      "image_viewer": "Trình xem ảnh",
+      "views": "lượt xem"
+    }
+  },
+  "market": {
+    "registerLink": "Nếu bạn cần mở cửa hàng nhấn vào đây",
+    "history": "Xem lịch sử đăng ký",
+    "title": "Danh sách cửa hàng"
+  },
+  "shop_detail": {
+    "back_button": "Quay lại",
+    "reviews_count": "({count} đánh giá)",
+    "views_count": "{count} lượt xem",
+    "contact_button": "Liên hệ ngay",
+    "joined_at": "Tham gia từ {date}",
+    "about_title": "Giới thiệu gian hàng",
+    "no_description": "Chủ cửa hàng chưa cập nhật bài viết giới thiệu chi tiết.",
+    "address_title": "Địa chỉ cửa hàng",
+    "map_syncing": "Bản đồ số đang được đồng bộ...",
+    "products_title": "Sản phẩm đặc sản đang bán"
+  },
+  "product_detail": {
+    "back_button": "Quay lại",
+    "featured_badge": "Đặc sản nổi bật",
+    "price_label": "Giá bán",
+    "unit_label": "Đơn vị tính",
+    "policy_quality": "Cam kết đặc sản chính gốc Hà Tĩnh, an toàn vệ sinh thực phẩm",
+    "policy_shipping": "Giao hàng toàn quốc nhanh chóng, đóng gói cẩn thận",
+    "buy_now_button": "Đặt mua sản phẩm tại zalo or email của shop",
+    "description_title": "Chi tiết sản phẩm",
+    "no_description": "Chưa có bài viết mô tả chi tiết cho sản phẩm này.",
+    "shop_section_title": "Cung cấp bởi gian hàng",
+    "visit_shop_button": "Ghé thăm gian hàng"
+  },
+  "seller": {
+    "title": "Đăng ký bán hàng",
+    "description": "Điền đầy đủ thông tin bên dưới để bắt đầu kinh doanh trên nền tảng của chúng tôi.",
+    "success_title": "Gửi đơn thành công!",
+    "success_description": "Hồ sơ đăng ký cửa hàng của bạn đã được đưa vào hàng đợi. Vui lòng chờ ban quản trị phê duyệt.",
+    "btn_home": "Về trang chủ",
+    "btn_submit": "Gửi hồ sơ đăng ký",
+    "btn_loading": "Đang gửi hồ sơ...",
+    "error_network": "Lỗi mạng hoặc server bị gián đoạn.",
+    "sections": {
+      "basic": "1. Thông tin cơ bản",
+      "identity": "2. Xác minh danh tính",
+      "social": "3. Kênh liên hệ (Tùy chọn)"
+    },
+    "fields": {
+      "shop_name": "Tên Cửa Hàng *",
+      "shop_name_placeholder": "Ví dụ: Shop abc",
+      "phone_number": "Số Điện Thoại *",
+      "phone_number_placeholder": "0987654321",
+      "description": "Mô tả ngắn",
+      "description_placeholder": "Vài nét về sản phẩm...",
+      "id_front": "Mặt trước CCCD *",
+      "id_back": "Mặt sau CCCD *",
+      "facebook": "Link Facebook",
+      "zalo": "Số Zalo",
+      "zalo_placeholder": "Nhập SĐT Zalo"
+    },
+    "validation": {
+      "shop_name_min": "Tên shop phải có ít nhất 2 ký tự",
+      "shop_name_max": "Tên shop không được vượt quá 255 ký tự",
+      "phone_invalid": "Số điện thoại không hợp lệ (từ 10-20 ký tự)",
+      "upload_front": "Vui lòng upload ảnh mặt trước",
+      "upload_back": "Vui lòng upload ảnh mặt sau"
+    }
+  },
+  "seller_history": {
+    "title": "Lịch sử đăng ký bán hàng",
+    "description": "Theo dõi trạng thái các đơn đăng ký mở cửa hàng của bạn.",
+    "empty": "Bạn chưa gửi đơn đăng ký bán hàng nào.",
+    "th_shop_name": "Tên cửa hàng",
+    "th_phone": "Số điện thoại",
+    "th_date": "Ngày gửi",
+    "th_status": "Trạng thái",
+    "th_rejection": "Lý do từ chối",
+    "status": {
+      "pending": "Đang chờ duyệt",
+      "approved": "Đã phê duyệt",
+      "rejected": "Bị từ chối"
+    },
+    "btn_register": "Đăng ký"
+  },
+  "review_form": {
+    "create_title": "Gửi đánh giá của sếp",
+    "edit_title": "Chỉnh sửa đánh giá của sếp",
+    "subtitle": "Chia sẻ trải nghiệm thực tế để giúp cộng đồng",
+    "content_label": "Nội dung bình luận",
+    "placeholder": "Sản phẩm ăn rất ngon, đóng gói cẩn thận, phục vụ chu đáo...",
+    "image_label": "Hình ảnh thực tế (Tối đa 5 ảnh)",
+    "cancel_button": "Hủy bỏ",
+    "submit_create_button": "Gửi đánh giá",
+    "submit_edit_button": "Cập nhật bài viết"
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "placeholder": "Tìm kiếm địa điểm, đặc sản, văn hóa...",
+    "filter_type": "Phân loại",
+    "type_all": "Tất cả",
+    "type_attraction": "Địa điểm du lịch",
+    "type_specialty": "Đặc sản",
+    "type_art": "Văn hóa nghệ thuật",
+    "sort_by": "Sắp xếp theo",
+    "sort_latest": "Mới nhất",
+    "sort_views": "Nhiều lượt xem",
+    "no_results": "Không tìm thấy kết quả nào phù hợp",
+    "button": "Tìm kiếm",
+    "views": "lượt xem"
+  }
+}

@@ -1,0 +1,245 @@
+{
+    "header": {
+        "home": "Startseite",
+        "market": "Marktplatz",
+        "audio": "Historisches Audio",
+        "ranking": "Top-Reiseziele",
+        "blog": "Blog",
+        "login": "Anmelden",
+        "setting": "Einstellungen",
+        "logout": "Abmelden",
+        "history": "Registrierungsverlauf"
+    },
+    "home": {
+        "title": {
+            "attraction": "Sehenswürdigkeiten",
+            "local_specialty": "Spezialitäten aus Hà Tĩnh",
+            "cultural_art": "Kultur & Kunst aus Hà Tĩnh"
+        },
+        "hero": {
+            "title": "Hà Tĩnh: Entdecken Sie die verborgene Schönheit",
+            "description": "Von unberührten, majestätischen Stränden bis hin zu ehrwürdigen historischen Stätten – Hà Tĩnh lädt Sie zu einer einzigartigen und unvergesslichen Reise ein.",
+            "ctaSeePlaces": "Orte entdecken",
+            "ctaPlanTrip": "Reise planen"
+        },
+        "welcome": {
+            "tagline": "Willkommen in Hà Tĩnh",
+            "heading": "Entdecken Sie das Land der Legenden und Talente",
+            "description": "Hà Tĩnh bezaubert Besucher nicht nur mit dem malerischen Fluss Lam und dem majestätischen Hoành-Sơn-Gebirge, sondern auch mit seiner reichen Kultur, Gastfreundschaft und den schmackhaften lokalen Spezialitäten.",
+            "stat_destinations": "Sehenswürdigkeiten",
+            "stat_safe": "Sicher & Gastfreundlich",
+            "stat_visitors": "Besucher",
+            "stat_days": "Erlebnistage"
+        },
+        "about": {
+            "section_tag": "Über die Region",
+            "heading": "Wo das Silbermeer auf majestätische Berge trifft",
+            "paragraph_1": "Im sonnigen und windigen Zentralvietnam gelegen, bietet Hà Tĩnh eine wunderschöne Küstenlinie mit berühmten Stränden wie Thiên Cầm und Xuân Thành sowie national bedeutenden historischen Stätten wie der Đồng-Lộc-Kreuzung und der Gedenkstätte des großen Dichters Nguyễn Du.",
+            "paragraph_2": "Ein Besuch in Hà Tĩnh bedeutet, in die seelenvollen Melodien des von der UNESCO anerkannten Ví-Giặm-Volksgesangs einzutauchen, Entspannung in einer friedlichen Atmosphäre zu finden und die glorreiche Geschichte der Region neu zu entdecken."
+        },
+        "timeline": {
+            "heading": "Meilensteine der Entwicklung",
+            "subtitle": "Die Entwicklung des lokalen Tourismus",
+            "phase_1_title": "Ursprung & Entstehung",
+            "phase_1_desc": "Fokus auf die Erhaltung wichtiger historischer Stätten und die Erschließung unberührter Strände.",
+            "phase_2_title": "Infrastruktur-Durchbruch",
+            "phase_2_desc": "Ausbau der Hauptverkehrsstraßen und Erweiterung der Resorts Thiên Cầm und Xuân Thành.",
+            "phase_3_title": "Digitale Transformation & Kulturerbe",
+            "phase_3_desc": "Weltweite Förderung der Ví-Giặm-Kultur und Integration einer smarten digitalen Tourismuskarte.",
+            "phase_4_title": "Nachhaltiger grüner Tourismus",
+            "phase_4_desc": "Entwicklung von Ökotourismus und Gemeinde-Tourismus im Einklang mit dem Naturschutz."
+        },
+        "cta": {
+            "heading": "Planen Sie Ihre Reise",
+            "description": "Verpassen Sie nicht die Gelegenheit, die friedliche Schönheit zu erleben, den Ví-Giặm-Gesängen zu lauschen und das köstliche Cu Đơ direkt in Hà Tĩnh zu genießen.",
+            "button": "Jetzt entdecken",
+            "see_more": "Mehr anzeigen"
+        }
+    },
+    "specialty": {
+        "detail": {
+            "home": "Startseite",
+            "views": "Aufrufe",
+            "photo_gallery": "Produktgalerie",
+            "image_viewer": "Spezialitäten-Bildbetrachter",
+            "product_info": "Produktinformationen",
+            "price_label": "Richtpreis",
+            "contact_price": "Preis auf Anfrage",
+            "unit_label": "Einheit",
+            "ingredients_label": "Hauptzutaten",
+            "origin_location": "Herkunft / Herstellungsort",
+            "view_origin_map": "Karte der Region anzeigen"
+        }
+    },
+    "card": {
+        "attraction": {
+            "explore": "Entdecken"
+        },
+        "local_specialty": {
+            "explore": "Entdecken"
+        }
+    },
+    "login": {
+        "title": "Anmelden",
+        "description": "Geben Sie Ihre E-Mail und Ihr Passwort ein, um fortzufahren",
+        "email_label": "E-Mail",
+        "password_label": "Passwort",
+        "forgot_password": "Passwort vergessen?",
+        "button_loading": "Wird verarbeitet...",
+        "button_submit": "Anmelden",
+        "error_fallback": "Anmeldung fehlgeschlagen.",
+        "error_connection": "Verbindungsfehler zum Server.",
+        "validation": {
+            "email_invalid": "Ungültige E-Mail-Adresse.",
+            "password_min": "Das Passwort muss mindestens 6 Zeichen lang sein."
+        }
+    },
+    "register": {
+        "title": "Registrieren",
+        "description": "Erstellen Sie ein neues Konto, um zu beginnen.",
+        "already_have_account": "Bereits ein Konto vorhanden?",
+        "login_link": "Anmelden",
+        "username_label": "Anzeigename (Optional)",
+        "email_label": "E-Mail *",
+        "password_label": "Passwort *",
+        "confirm_password_label": "Passwort bestätigen *",
+        "button_loading": "Wird verarbeitet...",
+        "button_submit": "Konto erstellen",
+        "error_fallback": "Registrierung fehlgeschlagen.",
+        "error_connection": "Verbindungsfehler zum Server.",
+        "success_title": "Posteingang überprüfen",
+        "success_message_1": "Wir haben einen Bestätigungslink geschickt an:",
+        "success_message_2": "Bitte überprüfen Sie Ihre E-Mails, um Ihr Konto zu aktivieren.",
+        "back_to_login": "Zurück zur Anmeldung",
+        "validation": {
+            "email_invalid": "Ungültige E-Mail-Adresse.",
+            "password_min": "Das Passwort muss mindestens 6 Zeichen lang sein.",
+            "password_mismatch": "Die Passwörter stimmen nicht überein."
+        }
+    },
+    "attraction": {
+        "explore": "Entdecken",
+        "detail": {
+            "home": "Startseite",
+            "photo_gallery": "Fotogalerie",
+            "trip_info": "Reiseinformationen",
+            "location": "Standort",
+            "opening_hours": "Öffnungszeiten",
+            "not_updated": "Nicht aktualisiert",
+            "estimated_price": "Geschätzter Ticketpreis",
+            "free": "Kostenlos",
+            "hotline": "Hotline",
+            "website": "Webseite",
+            "view_map": "Auf Google Maps anzeigen",
+            "image_viewer": "Bildbetrachter",
+            "views": "Aufrufe"
+        }
+    },
+    "market": {
+        "registerLink": "Klicken Sie hier, wenn Sie einen Shop eröffnen möchten",
+        "history": "Registrierungsverlauf anzeigen",
+        "title": "Geschäfte-Liste"
+    },
+    "shop_detail": {
+        "back_button": "Zurück",
+        "reviews_count": "({count} Bewertungen)",
+        "views_count": "{count} Aufrufe",
+        "contact_button": "Jetzt kontaktieren",
+        "joined_at": "Mitglied seit {date}",
+        "about_title": "Über diesen Shop",
+        "no_description": "Der Verkäufer hat noch keine detaillierte Beschreibung hinzugefügt.",
+        "address_title": "Adresse des Geschäfts",
+        "map_syncing": "Digitale Karte wird synchronisiert...",
+        "products_title": "Angebotene Spezialitäten"
+    },
+    "product_detail": {
+        "back_button": "Zurück",
+        "featured_badge": "Top-Spezialität",
+        "price_label": "Preis",
+        "unit_label": "Einheit",
+        "policy_quality": "Garantiert authentische Hà Tĩnh Spezialität, lebensmittelsicher",
+        "policy_shipping": "Schneller weltweiter/landesweiter Versand, sorgfältig verpackt",
+        "buy_now_button": "Über Zalo oder E-Mail des Shops bestellen",
+        "description_title": "Produktbeschreibung",
+        "no_description": "Für dieses Produkt liegt noch keine Beschreibung vor.",
+        "shop_section_title": "Angeboten von",
+        "visit_shop_button": "Shop besuchen"
+    },
+    "seller": {
+        "title": "Als Verkäufer registrieren",
+        "description": "Füllen Sie das Formular aus, um auf unserer Plattform zu verkaufen.",
+        "success_title": "Antrag erfolgreich gesendet!",
+        "success_description": "Ihre Shop-Registrierung befindet sich in der Warteschlange. Bitte warten Sie auf die Genehmigung durch den Administrator.",
+        "btn_home": "Zur Startseite",
+        "btn_submit": "Antrag einreichen",
+        "btn_loading": "Wird gesendet...",
+        "error_network": "Netzwerkfehler oder Server unterbrochen.",
+        "sections": {
+            "basic": "1. Basisinformationen",
+            "identity": "2. Identitätsprüfung",
+            "social": "3. Kontaktkanäle (Optional)"
+        },
+        "fields": {
+            "shop_name": "Shop-Name *",
+            "shop_name_placeholder": "Z.B.: Shop ABC",
+            "phone_number": "Telefonnummer *",
+            "phone_number_placeholder": "0987654321",
+            "description": "Kurzbeschreibung",
+            "description_placeholder": "Ein paar Worte zu den Produkten...",
+            "id_front": "Personalausweis Vorderseite *",
+            "id_back": "Personalausweis Rückseite *",
+            "facebook": "Facebook-Link",
+            "zalo": "Zalo-Nummer",
+            "zalo_placeholder": "Zalo-Nummer eingeben"
+        },
+        "validation": {
+            "shop_name_min": "Der Shop-Name muss mindestens 2 Zeichen lang sein",
+            "shop_name_max": "Der Shop-Name darf maximal 255 Zeichen lang sein",
+            "phone_invalid": "Ungültige Telefonnummer (10-20 Zeichen)",
+            "upload_front": "Bitte laden Sie das Foto der Vorderseite hoch",
+            "upload_back": "Bitte laden Sie das Foto der Rückseite hoch"
+        }
+    },
+    "seller_history": {
+        "title": "Verkäufer-Registrierungsverlauf",
+        "description": "Verfolgen Sie den Status Ihrer Anträge auf Shop-Eröffnung.",
+        "empty": "Sie haben noch keine Registrierungsanträge eingereicht.",
+        "th_shop_name": "Shop-Name",
+        "th_phone": "Telefonnummer",
+        "th_date": "Datum",
+        "th_status": "Status",
+        "th_rejection": "Ablehnungsgrund",
+        "status": {
+            "pending": "In Bearbeitung",
+            "approved": "Genehmigt",
+            "rejected": "Abgelehnt"
+        },
+        "btn_register": "Registrieren"
+    },
+    "review_form": {
+        "create_title": "Bewertung abgeben",
+        "edit_title": "Bewertung bearbeiten",
+        "subtitle": "Teilen Sie Ihre Erfahrungen, um der Community zu helfen",
+        "content_label": "Bewertungstext",
+        "placeholder": "Sehr leckeres Produkt, sorgfältig verpackt, hervorragender Service...",
+        "image_label": "Fotos (Maximal 5 Fotos)",
+        "cancel_button": "Abbrechen",
+        "submit_create_button": "Bewertung absenden",
+        "submit_edit_button": "Beitrag aktualisieren"
+    },
+    "search": {
+        "title": "Suche",
+        "placeholder": "Suche nach Orten, Spezialitäten, Kultur...",
+        "filter_type": "Kategorie",
+        "type_all": "Alle",
+        "type_attraction": "Reiseziele",
+        "type_specialty": "Spezialitäten",
+        "type_art": "Kultur & Kunst",
+        "sort_by": "Sortieren nach",
+        "sort_latest": "Neueste",
+        "sort_views": "Meistgesehen",
+        "no_results": "Keine passenden Ergebnisse gefunden",
+        "button": "Suchen",
+        "views": "Aufrufe"
+    }
+}
