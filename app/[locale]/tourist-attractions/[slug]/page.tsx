@@ -41,7 +41,7 @@ async function getAttractionDetail(slug: string, locale: string): Promise<Touris
     const addrTrans = dbAttraction.address?.translations.find((t: any) => t.language_code === locale) || dbAttraction.address?.translations.find((t: any) => t.language_code === 'vi');
 
     const slugs: Record<string, string> = {};
-    dbAttraction.translations.forEach(t => {
+    dbAttraction.translations.forEach((t: any) => {
       slugs[t.language_code] = t.slug;
     });
 
