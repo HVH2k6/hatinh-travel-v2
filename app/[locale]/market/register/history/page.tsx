@@ -14,7 +14,7 @@ export default async function HistoryRegisterPage({ params }: PageProps) {
   const applications = result.success ? result.data : [];
 
   return (
-    <HistoryRegisterSeller initialData={applications} />
+    <HistoryRegisterSeller initialData={applications as any} />
     // <></>
 
   );

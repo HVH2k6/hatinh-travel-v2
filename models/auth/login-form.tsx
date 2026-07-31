@@ -57,7 +57,7 @@ export default function LoginForm() {
     try {
       const result = await handleServerLogin(data, currentLang);
       if (result.success) {
-        setUser(result.user);
+        setUser(result.user as any);
         router.push('/');
       } else {
         setErrorMessage(result.error || t('error_fallback'));
