@@ -32,7 +32,7 @@ export async function GET(request: Request) {
       where: { shop_id: shop.id },
       select: { id: true, translations: true }
     });
-    const productIds = products.map(p => p.id);
+    const productIds = products.map((p: any) => p.id);
 
     // Xây dựng điều kiện query:
     // Đánh giá về Cửa hàng HOẶC Đánh giá về Sản phẩm của cửa hàng
@@ -64,14 +64,14 @@ export async function GET(request: Request) {
       })
     ]);
 
-    const formattedReviews = reviews.map(review => {
+    const formattedReviews = reviews.map((review: any) => {
       const date = new Date(review.created_at);
       const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
       
       // Determine target name
       let targetName = 'Cửa hàng';
       if (review.reviewable_type === 'Product' || review.reviewable_type === 'App\\Models\\Product') {
-        const prod = products.find(p => p.id === review.reviewable_id);
+        const prod = products.find((p: any) => p.id === review.reviewable_id);
         const prodName = prod?.translations?.find((t: any) => t.language_code === 'vi')?.name || 'Sản phẩm';
         targetName = `Sản phẩm: ${prodName}`;
       }

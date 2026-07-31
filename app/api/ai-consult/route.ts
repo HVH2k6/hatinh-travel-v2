@@ -74,20 +74,20 @@ export async function POST(request: Request) {
     ]);
 
     let dbContext = 'CÁC ĐỊA ĐIỂM DU LỊCH NỔI BẬT Ở HÀ TĨNH:\n';
-    attractions.forEach(a => {
+    attractions.forEach((a: any) => {
       const name = a.translations[0]?.name || 'Không rõ';
       const desc = a.translations[0]?.description?.substring(0, 100) || '';
       dbContext += `- ${name}: Giá từ ${a.min_price || 0} đến ${a.max_price || 0}. Mô tả ngắn: ${desc}...\n`;
     });
 
     dbContext += '\nĐẶC SẢN ĐỊA PHƯƠNG:\n';
-    specialties.forEach(s => {
+    specialties.forEach((s: any) => {
       const name = s.translations[0]?.name || 'Không rõ';
       dbContext += `- ${name}: Giá khoảng ${s.price || 0}\n`;
     });
 
     dbContext += '\nVĂN HÓA NGHỆ THUẬT:\n';
-    arts.forEach(a => {
+    arts.forEach((a: any) => {
       const name = a.translations[0]?.name || 'Không rõ';
       dbContext += `- ${name}\n`;
     });

@@ -33,7 +33,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
     let imagesArray: string[] = [];
     if (list_image && typeof list_image === 'string') {
-      imagesArray = list_image.split(',').map(s => s.trim()).filter(Boolean);
+      imagesArray = list_image.split(',').map((s: any) => s.trim()).filter(Boolean);
     }
 
     const updatedReview = await prisma.review.update({

@@ -39,7 +39,7 @@ export async function GET(request: Request) {
         prisma.tourist_Attraction.findMany({
           where: { is_active: true, ...searchCondition },
           include: { translations: true }
-        }).then(res => res.map(item => ({
+        }).then((res: any) => res.map((item: any) => ({
           id: item.id,
           name: item.translations.find((t: any) => t.language_code === lang)?.name || '',
           slug: item.translations.find((t: any) => t.language_code === lang)?.slug || '',
@@ -60,7 +60,7 @@ export async function GET(request: Request) {
         prisma.local_Specialty.findMany({
           where: { status: 'active', ...searchCondition },
           include: { translations: true }
-        }).then(res => res.map(item => ({
+        }).then((res: any) => res.map((item: any) => ({
           id: item.id,
           name: item.translations.find((t: any) => t.language_code === lang)?.name || '',
           slug: item.translations.find((t: any) => t.language_code === lang)?.slug || '',
@@ -81,7 +81,7 @@ export async function GET(request: Request) {
         prisma.cultural_Art.findMany({
           where: { is_active: true, ...searchCondition },
           include: { translations: true }
-        }).then(res => res.map(item => ({
+        }).then((res: any) => res.map((item: any) => ({
           id: item.id,
           name: item.translations.find((t: any) => t.language_code === lang)?.name || '',
           slug: item.translations.find((t: any) => t.language_code === lang)?.slug || '',
@@ -103,7 +103,7 @@ export async function GET(request: Request) {
     let allResults = [...attractions, ...specialties, ...arts];
 
     // Filter out items without a valid translation in the current language
-    allResults = allResults.filter(item => item.name && item.slug);
+    allResults = allResults.filter((item: any) => item.name && item.slug);
 
     // Sorting
     if (sort === 'latest') {

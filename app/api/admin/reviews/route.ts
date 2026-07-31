@@ -36,7 +36,7 @@ export async function GET(request: Request) {
     const specialtyIds: string[] = [];
     const artIds: string[] = [];
 
-    reviews.forEach(r => {
+    reviews.forEach((r: any) => {
       if (r.reviewable_type === 'Product' || r.reviewable_type === 'App\\Models\\Product') productIds.push(r.reviewable_id);
       else if (r.reviewable_type === 'Shop' || r.reviewable_type === 'App\\Models\\Shop') shopIds.push(r.reviewable_id);
       else if (r.reviewable_type === 'TouristAttraction' || r.reviewable_type === 'App\\Models\\TouristAttraction') attractionIds.push(r.reviewable_id);
@@ -53,7 +53,7 @@ export async function GET(request: Request) {
       artIds.length > 0 ? prisma.cultural_Art.findMany({ where: { id: { in: artIds } }, select: { id: true, translations: true } }) : []
     ]);
 
-    const formattedReviews = reviews.map(review => {
+    const formattedReviews = reviews.map((review: any) => {
       const date = new Date(review.created_at);
       const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
       
@@ -61,23 +61,23 @@ export async function GET(request: Request) {
       let typeLabel = '';
 
       if (review.reviewable_type === 'Product' || review.reviewable_type === 'App\\Models\\Product') {
-        const p = products.find(x => x.id === review.reviewable_id);
+        const p = products.find((x: any) => x.id === review.reviewable_id);
         targetName = p?.translations?.find((t:any) => t.language_code === 'vi')?.name || 'Sản phẩm';
         typeLabel = 'Sản phẩm';
       } else if (review.reviewable_type === 'Shop' || review.reviewable_type === 'App\\Models\\Shop') {
-        const s = shops.find(x => x.id === review.reviewable_id);
+        const s = shops.find((x: any) => x.id === review.reviewable_id);
         targetName = s?.translations?.find((t:any) => t.language_code === 'vi')?.name || 'Cửa hàng';
         typeLabel = 'Cửa hàng';
       } else if (review.reviewable_type === 'TouristAttraction' || review.reviewable_type === 'App\\Models\\TouristAttraction') {
-        const a = attractions.find(x => x.id === review.reviewable_id);
+        const a = attractions.find((x: any) => x.id === review.reviewable_id);
         targetName = a?.translations?.find((t:any) => t.language_code === 'vi')?.name || 'Điểm du lịch';
         typeLabel = 'Điểm du lịch';
       } else if (review.reviewable_type === 'LocalSpecialty' || review.reviewable_type === 'App\\Models\\LocalSpecialty') {
-        const ls = specialties.find(x => x.id === review.reviewable_id);
+        const ls = specialties.find((x: any) => x.id === review.reviewable_id);
         targetName = ls?.translations?.find((t:any) => t.language_code === 'vi')?.name || 'Đặc sản';
         typeLabel = 'Đặc sản';
       } else if (review.reviewable_type === 'CulturalArt' || review.reviewable_type === 'App\\Models\\CulturalArt') {
-        const ca = arts.find(x => x.id === review.reviewable_id);
+        const ca = arts.find((x: any) => x.id === review.reviewable_id);
         targetName = ca?.translations?.find((t:any) => t.language_code === 'vi')?.name || 'VH Nghệ thuật';
         typeLabel = 'VH Nghệ thuật';
       }

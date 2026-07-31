@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     let imagesArray: string[] = [];
     if (list_image && typeof list_image === 'string') {
-      imagesArray = list_image.split(',').map(s => s.trim()).filter(Boolean);
+      imagesArray = list_image.split(',').map((s: any) => s.trim()).filter(Boolean);
     }
 
     const newReview = await prisma.review.create({

@@ -109,7 +109,7 @@ export default function SearchPage() {
     if (checked) {
       setTypes(prev => [...prev, typeId]);
     } else {
-      setTypes(prev => prev.filter(t => t !== typeId));
+      setTypes(prev => prev.filter((t: any) => t !== typeId));
     }
   };
 

@@ -57,7 +57,7 @@ export async function GET(request: Request) {
       prisma.review.count({ where: whereClause })
     ]);
 
-    const formattedReviews = reviews.map(review => {
+    const formattedReviews = reviews.map((review: any) => {
       // Format ngày tương tự diffForHumans đơn giản
       const date = new Date(review.created_at);
       const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;

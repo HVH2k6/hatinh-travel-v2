@@ -25,7 +25,7 @@ export async function GET(request: Request) {
       prisma.user.count()
     ]);
 
-    const usersWithoutPassword = users.map(u => {
+    const usersWithoutPassword = users.map((u: any) => {
       const { password, ...userWithoutPassword } = u;
       return userWithoutPassword;
     });

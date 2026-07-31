@@ -114,7 +114,7 @@ export async function PUT(
           });
           const addressTranslationsData = translations
             .filter((t: any) => t.address_detail)
-            .map(t => ({
+            .map((t: any) => ({
               address_id: addressId as string,
               language_code: t.language_code,
               detail: t.address_detail,
@@ -147,7 +147,7 @@ export async function PUT(
 
         const specialtyTranslationsData = translations
           .filter((t: any) => t.name)
-          .map(t => ({
+          .map((t: any) => ({
             local_specialty_id: id,
             language_code: t.language_code,
             name: t.name,
