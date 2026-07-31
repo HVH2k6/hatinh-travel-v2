@@ -242,7 +242,7 @@ export async function PUT(request: Request) {
             description: t.description,
             updated_at: new Date()
           }
-        }).catch(async (e) => {
+        }).catch(async (e: any) => {
           // If upsert fails because we couldn't match ID, let's find by shop_id and language_code
           const existingTrans = await prisma.shop_Translation.findFirst({
             where: { shop_id: existingShop.id, language_code: t.language_code }

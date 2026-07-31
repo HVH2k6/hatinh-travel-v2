@@ -131,7 +131,7 @@ export default function SearchPage() {
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sticky top-24">
               <h3 className="font-bold text-lg mb-4 border-b pb-2">{t('filter_type')}</h3>
               <div className="space-y-4">
-                {filterOptions.map((option) => (
+                {filterOptions.map((option: any) => (
                   <div key={option.id} className="flex items-center space-x-2">
                     <Checkbox
                       id={`type-${option.id}`}
@@ -196,7 +196,7 @@ export default function SearchPage() {
 
             {/* Results Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {results.map((item) => (
+              {results.map((item: any) => (
                 <Link key={`${item.type}-${item.id}`} href={getLinkHref(item)}>
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-100 group h-full flex flex-col">
                     <div className="relative h-48 w-full overflow-hidden bg-slate-200">
