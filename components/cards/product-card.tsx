@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
 import { IProduct } from '@/interface/IProduct';
+import { formatCurrency } from '@/lib/format-currency';
+import { useLocale } from 'next-intl';
 
 
 interface ProductCardProps {
@@ -12,15 +14,13 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const currentLocale = useLocale();
   // Định dạng giá tiền chuẩn Việt Nam VNĐ (Vd: 150.000 đ)
-  const formattedPrice = new Intl.NumberFormat('vi-VN', {
-    style: 'currency',
-    currency: 'VND',
-  }).format(product.price);
+  const formattedPrice = formatCurrency(product.price, currentLocale);
 
   return (
     <div className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
-      
+
       {/* Khung ảnh sản phẩm */}
       <div className="relative w-full aspect-square bg-slate-50 overflow-hidden">
         {product.image ? (

@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { IProductDetail } from '@/interface/IProduct';
 import ReviewSection from '@/components/review/review-section';
+import { formatCurrency } from '@/lib/format-currency';
 
 interface ProductDetailClientProps {
   product: IProductDetail;
@@ -25,18 +26,13 @@ export default function ProductDetailClient({
   product,
 }: ProductDetailClientProps) {
   const router = useRouter();
-  const currentLang = useLocale();
   const t = useTranslations('product_detail');
-
+  const currentLocale = useLocale();
   const [activeImage, setActiveImage] = useState<string>(product.image);
 
   const album = [product.image, ...(product.list_image || [])].filter(Boolean);
 
-  const formattedPrice = new Intl.NumberFormat('vi-VN', {
-    style: 'currency',
-    currency: 'VND',
-  }).format(product.price);
-
+  const formattedPrice = formatCurrency(product.price, currentLocale);
   return (
     <div className='bg-slate-50/50 min-h-screen pb-16 pt-6'>
       <div className='max-w-6xl mx-auto px-6 space-y-6'>
@@ -72,11 +68,10 @@ export default function ProductDetailClient({
                   <button
                     key={idx}
                     onClick={() => setActiveImage(imgUrl)}
-                    className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 bg-slate-50 shrink-0 transition-all ${
-                      activeImage === imgUrl
+                    className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 bg-slate-50 shrink-0 transition-all ${activeImage === imgUrl
                         ? 'border-orange-500 scale-95 shadow-sm'
                         : 'border-slate-100 opacity-70 hover:opacity-100'
-                    }`}
+                      }`}
                   >
                     <Image
                       src={imgUrl}
